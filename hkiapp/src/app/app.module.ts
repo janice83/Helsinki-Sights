@@ -7,6 +7,7 @@ import { PlacesListComponent } from './places-list/places-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BackButtonComponent } from './back-button/back-button.component';
 import { BackButtonDirective } from './back-button.directive';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BackButtonDirective } from './back-button.directive';
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

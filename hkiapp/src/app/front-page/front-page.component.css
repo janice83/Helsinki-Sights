@@ -1,0 +1,12 @@
+.helsinki-img {
+    background-image: url("../../assets/images/helsinki.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.introduction-text {
+    margin: 1.5rem;
+    background-color: rgba(102, 101, 101, 0.712);
+    padding: 2rem;
+    color: white;
+}

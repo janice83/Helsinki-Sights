@@ -1,7 +1,16 @@
+main {
+    margin-top: 5rem;
+}
+
 .helsinki-img {
     background-image: url("../../assets/images/helsinki.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    padding: 2rem;
+}
+
+.places-img {
+    background-image: url("../../assets/images/railway-men.jpg");
 }
 
 .introduction-text {
@@ -9,4 +18,18 @@
     background-color: rgba(102, 101, 101, 0.712);
     padding: 2rem;
     color: white;
+}
+
+.list-links {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+}
+
+.list-links>* {
+
+}
+
+.round-img {
+    text-align: center;
 }

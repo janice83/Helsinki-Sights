@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BackButtonComponent } from './back-button/back-button.component';
 import { BackButtonDirective } from './back-button.directive';
 import { AppRoutingModule } from './app-routing.module';
+import { PlacesDetailComponent } from './places-detail/places-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
     FrontPageComponent,
     PlacesListComponent,
     BackButtonComponent,
-    BackButtonDirective
+    BackButtonDirective,
+    PlacesDetailComponent
   ],
   imports: [
     BrowserModule,

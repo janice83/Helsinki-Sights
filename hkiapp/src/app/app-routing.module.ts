@@ -6,7 +6,8 @@ import { PlacesListComponent } from './places-list/places-list.component';
 
 const routes: Routes = [
   { path: 'front-page', component: FrontPageComponent},
-  { path: 'places-list', component: PlacesListComponent }
+  { path: 'places-list', component: PlacesListComponent },
+  { path: '', redirectTo: '/front-page', pathMatch: 'full'}
 ];
 
 

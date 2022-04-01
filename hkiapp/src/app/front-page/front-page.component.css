@@ -1,3 +1,4 @@
+
 main {
     margin-top: 5rem;
 }
@@ -11,11 +12,13 @@ main {
 
 .places-img {
     background-image: url("../../assets/images/railway-men.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .introduction-text {
     margin: 1.5rem;
-    background-color: rgba(102, 101, 101, 0.712);
+    background-color: rgba(77, 76, 76, 0.712);
     padding: 2rem;
     color: white;
 }

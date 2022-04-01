@@ -9,6 +9,7 @@ import { BackButtonComponent } from './back-button/back-button.component';
 import { BackButtonDirective } from './back-button.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { PlacesDetailComponent } from './places-detail/places-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PlacesDetailComponent } from './places-detail/places-detail.component';
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

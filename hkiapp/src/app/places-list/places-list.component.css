@@ -1,0 +1,9 @@
+.list-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list-page >* {
+    flex-basis: 45%;
+}

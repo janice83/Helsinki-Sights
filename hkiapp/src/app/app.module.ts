@@ -10,6 +10,7 @@ import { BackButtonDirective } from './back-button.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { PlacesDetailComponent } from './places-detail/places-detail.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FontAwesomeModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

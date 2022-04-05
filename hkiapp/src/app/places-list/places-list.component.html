@@ -1,7 +1,16 @@
 <main>
     <section class="list-page">
         <article>
-
+          <div  class="col col-lg-2" >
+            <input placeholder="Search" type="search" id="input-field">
+            <select class="sort" >
+                <option value="search" selected disabled hidden>Search by</option>
+                <option value="age"></option>
+                <option value="name"></option>
+            </select>
+        </div>
+        <app-back-button></app-back-button>
+        <div id="map"></div>
         </article>
         <article>
             <div class="list-group">

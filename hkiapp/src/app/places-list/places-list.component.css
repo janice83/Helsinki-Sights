@@ -7,3 +7,16 @@
 .list-page >* {
     flex-basis: 45%;
 }
+
+#map {
+    height: 60vh;
+    width: 80vh;
+    margin: 0 5rem 0 1rem;
+}
+
+#input-field {
+    margin: 1rem 1rem;
+}
+.sort {
+    margin: 0 0 5rem 1rem;
+}

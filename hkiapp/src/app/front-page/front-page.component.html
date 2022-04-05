@@ -2,27 +2,29 @@
   <!-- yläpalkki jossa sää, login ja kielivalinnat -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Carousel</a>
+        <a class="navbar-brand" href="#">Helsinki Sights</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+<!--            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Etusivulle</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+-->              <li class="nav-item">
+              <a class="nav-link" href="#">Sää-widgetti tähän</a>
             </li>
-            <li class="nav-item">
+<!--            <li class="nav-item">
               <a class="nav-link disabled">Disabled</a>
             </li>
-          </ul>
-          <form class="d-flex">
+ -->          </ul>
+          <button class="btn btn-outline-success" type="submit">Change language</button>
+          <button class="btn btn-outline-success" type="submit">Kirjaudu</button>
+<!--           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
-        </div>
+ -->        </div>
       </div>
     </nav>
   
@@ -31,7 +33,7 @@
     <!-- introteksti -->
     <section class="container rounded helsinki-img">
       <div class="introduction-text rounded">
-        <h1>Some catchy topic</h1>
+        <h1>Helsingin paikat, tapahtumat ja aktiviteetit</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi qui molestias reprehenderit autem? Explicabo, laborum sint! Nemo eos deleniti praesentium iste qui incidunt, molestiae ad aut. Excepturi, repudiandae laboriosam? Possimus consectetur at praesentium! Quia itaque animi mollitia quam ea aliquid porro, impedit facere numquam vitae explicabo. Veritatis rerum quia cumque sunt consequatur dolores itaque magnam iure. Nisi voluptatem eaque enim iure asperiores, excepturi dolorem corrupti in quos veritatis officiis omnis! Expedita laboriosam, itaque voluptatibus aut molestias asperiores tempore! Accusantium dolor quidem ex quas dolorum ipsam. Placeat non atque ex obcaecati? Placeat voluptatibus exercitationem nemo autem sequi? Iure fugit officiis inventore?</p>
       </div>
   
@@ -45,19 +47,19 @@
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect class="places-img" width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
   
             <!-- <h2>Heading</h2> -->
-            <h1><a class="btn btn-secondary" routerLink="{{'/places-list/'}}">Places</a></h1>
+            <h1><a class="btn btn-secondary" routerLink="{{'/places-list/'}}">Paikat</a></h1>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4 round-img">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
   
             <!-- <h2>Heading</h2> -->
-            <h1><a class="btn btn-secondary" routerLink="{{'/places-list'}}">Activities</a></h1>
+            <h1><a class="btn btn-secondary" routerLink="{{'/places-list'}}">Tapahtumat</a></h1>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4 round-img">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
   
             <!-- <h2>Heading</h2> -->
-            <h1><a class="btn btn-secondary" routerLink="{{'/places-list'}}">Events</a></h1>
+            <h1><a class="btn btn-secondary" routerLink="{{'/places-list'}}">Aktiviteetit</a></h1>
           </div><!-- /.col-lg-4 -->
         </div>
   </div>

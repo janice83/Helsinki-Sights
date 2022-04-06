@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PlacesDetailComponent } from './places-detail/places-detail.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     PlacesListComponent,
     BackButtonComponent,
     BackButtonDirective,
-    PlacesDetailComponent
+    PlacesDetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

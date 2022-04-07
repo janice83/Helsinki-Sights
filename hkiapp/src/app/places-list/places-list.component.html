@@ -24,7 +24,10 @@
                     <div>
                         <h2 class="mb-0"><a routerLink="{{'/places-detail/' + place.id }}">{{ place.name.fi }}</a></h2>
                         <p class="mb-0 opacity-75">{{ place.description.body }}</p>
-                        <p class="mb-0 opacity-75">{{ place.info_url }}</p>
+                        <!-- <p class="mb-0 opacity-75">{{ place.info_url }}</p> -->
+                        <a class="mb-0 opacity-75" target="_blank" href="{{place.info_url}}"  onclick="window.open(this.href,'_blank');" rel="noopener noreferrer" >
+                            {{place.info_url}}
+                         </a>
                     </div>
                   </div>
                 </div> 

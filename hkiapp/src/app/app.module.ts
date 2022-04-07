@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './map/map.component';
+import { MarkerService } from './marker.service';
+import { PopupService } from './popup.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { MapComponent } from './map/map.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

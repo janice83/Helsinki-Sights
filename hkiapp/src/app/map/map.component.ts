@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
+import { MarkerService } from '../marker.service';
 
 // defines the marker
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -25,7 +26,7 @@ L.Marker.prototype.options.icon = iconDefault;
 export class MapComponent implements AfterViewInit {
   private map: any;
 
-  constructor() { }
+  constructor(private markerService: MarkerService) { }
 
   ngOnInit(): void {
   }

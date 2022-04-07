@@ -12,6 +12,9 @@ import { PlacesDetailComponent } from './places-detail/places-detail.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { MapComponent } from './map/map.component';
+import { MarkerService } from './marker.service';
+import { PopupService } from './popup.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { FooterComponent } from './footer/footer.component';
     BackButtonComponent,
     BackButtonDirective,
     PlacesDetailComponent,
-    FooterComponent
+    FooterComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,12 +17,12 @@ export class PlacesListComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPlaces();
 
-    if (!navigator.geolocation) {
-      console.log("location is not supported")
-    }
-    navigator.geolocation.getCurrentPosition((position) => {
-      const coords = position.coords;
-      const latLong = [coords.latitude, coords.longitude];
+    // if (!navigator.geolocation) {
+    //   console.log("location is not supported")
+    // }
+    // navigator.geolocation.getCurrentPosition((position) => {
+    //   const coords = position.coords;
+    //   const latLong = [coords.latitude, coords.longitude];
 
       // Display latitude and longitude in console
 
@@ -31,51 +31,51 @@ export class PlacesListComponent implements OnInit {
 
       // );
       // Create a layer map 
-      let mymap = L.map('map').setView(latLong, 13);
+      // let mymap = L.map('map').setView(latLong, 13);
 
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmFyaWs0MTAyIiwiYSI6ImNsMWtnazY5MTAwbXAzam9kMm52bWI5dm8ifQ.7PfvxSz3IrVKeeEyQ374rA', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'your.mapbox.access.token'
-      }).addTo(mymap);
+  //     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmFyaWs0MTAyIiwiYSI6ImNsMWtnazY5MTAwbXAzam9kMm52bWI5dm8ifQ.7PfvxSz3IrVKeeEyQ374rA', {
+  //       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  //       maxZoom: 18,
+  //       id: 'mapbox/streets-v11',
+  //       tileSize: 512,
+  //       zoomOffset: -1,
+  //       accessToken: 'your.mapbox.access.token'
+  //     }).addTo(mymap);
 
-      let marker = L.marker(latLong).addTo(mymap);
-
-
-
-      // Add the marker on the chart
-      marker.bindPopup("Olet tässä").openPopup();
+  //     let marker = L.marker(latLong).addTo(mymap);
 
 
-      this.lat = position.coords.latitude;
-      this.lon = position.coords.longitude;
 
-    });
-   this.watchPosition;
-  }
+  //     // Add the marker on the chart
+  //     marker.bindPopup("Olet tässä").openPopup();
 
-  watchPosition() {
-    let desLat = 0;
-    let desLon = 0;
 
-    let id = navigator.geolocation.watchPosition((position) => {
-      console.log(
-        `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+  //     this.lat = position.coords.latitude;
+  //     this.lon = position.coords.longitude;
 
-      );
-      if (position.coords.latitude === desLat) {
-        navigator.geolocation.clearWatch(id);
-      }
-    }, (err) => {
-      console.log(err);
-    }, {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    })
+  //   });
+  //  this.watchPosition;
+  // }
+
+  // watchPosition() {
+  //   let desLat = 0;
+  //   let desLon = 0;
+
+  //   let id = navigator.geolocation.watchPosition((position) => {
+  //     console.log(
+  //       `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
+
+  //     );
+  //     if (position.coords.latitude === desLat) {
+  //       navigator.geolocation.clearWatch(id);
+  //     }
+  //   }, (err) => {
+  //     console.log(err);
+  //   }, {
+  //     enableHighAccuracy: true,
+  //     timeout: 5000,
+  //     maximumAge: 0
+  //   })
 
 
 

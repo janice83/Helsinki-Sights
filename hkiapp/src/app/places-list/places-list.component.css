@@ -20,3 +20,16 @@
 .sort {
     margin: 0 0 5rem 1rem;
 }
+
+.content {
+    height: 100vh;
+    max-width: auto;
+    border: 1px solid grey;
+    
+}
+
+.list-item{
+    list-style: none;
+    padding: 5px;
+    
+}

@@ -15,6 +15,10 @@ import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './map/map.component';
 import { MarkerService } from './marker.service';
 import { PopupService } from './popup.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CdkScrollableModule } from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { PopupService } from './popup.service';
     FontAwesomeModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ScrollingModule,
+    CdkScrollableModule
   ],
   providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]

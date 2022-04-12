@@ -3417,26 +3417,4 @@
         "additional_description": null
       }
     }
-  ],
-  "tags": {
-    "linkedevents:helmet:1": "Events",
-    "linkedevents:helmet:10592": "General",
-    "linkedevents:helmet:10595": "Children and families",
-    "linkedevents:helmet:10672": "Immigrants",
-    "linkedevents:helmet:10689": "Helsinki",
-    "linkedevents:helmet:10690": "Espoo",
-    "linkedevents:helmet:10737": "HelMet",
-    "linkedevents:helmet:10778": "Exhibitions",
-    "linkedevents:helmet:11193": "Literature",
-    "linkedevents:helmet:11687": "Games",
-    "linkedevents:helmet:11689": "Other events",
-    "linkedevents:helmet:12005": "Kids",
-    "linkedevents:yso:p13050": "families with children",
-    "linkedevents:yso:p4354": "children (age groups)",
-    "linkedevents:yso:p5121": "exhibitions",
-    "linkedevents:yso:p6062": "games",
-    "linkedevents:yso:p6165": "migrants",
-    "linkedevents:yso:p8113": "literature"
-  }
-}
 ]

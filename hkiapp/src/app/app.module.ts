@@ -18,6 +18,7 @@ import { PopupService } from './popup.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
+import { MatExpansionModule } from '@angular/material/expansion'; 
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { CdkScrollableModule } from '@angular/cdk/scrolling';
     HttpClientModule,
     BrowserAnimationsModule,
     ScrollingModule,
-    CdkScrollableModule
+    CdkScrollableModule,
+    MatExpansionModule
   ],
   providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]

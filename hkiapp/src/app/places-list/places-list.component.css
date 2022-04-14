@@ -22,7 +22,7 @@
 }
 
 .content {
-    height: 100vh;
+    height: 80vh;
     max-width: auto;
     border: 1px solid grey;
     
@@ -32,4 +32,8 @@
     list-style: none;
     padding: 5px;
     
+}
+
+.list-page-content {
+    padding: 2rem;
 }

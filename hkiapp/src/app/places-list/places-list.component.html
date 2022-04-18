@@ -41,7 +41,28 @@
         aria-current="true"
       >
         <cdk-virtual-scroll-viewport itemSize="100" class="content">
-          <mat-accordion>
+
+          <div *cdkVirtualFor="let place of places">
+            <details>
+              <summary>{{place.name.fi}} </summary>
+              <p class="mb-0 opacity-75">Osoite: {{ place.location.address.street_address }}</p>
+              <p class="mb-0 opacity-75"> {{ place.location.address.postal_code }}</p>
+              <p class="mb-0 opacity-75"> {{ place.location.address.locality }}</p>
+              <p>Aukioloajat:</p>
+              <p>Ma: {{ place.opening_hours.hours[0].opens }}  - {{ place.opening_hours.hours[0].closes }}</p>
+              <p>Ti: {{ place.opening_hours.hours[1].opens }}  - {{ place.opening_hours.hours[1].closes }}</p>
+              <p>Ke: {{ place.opening_hours.hours[2].opens }}  - {{ place.opening_hours.hours[2].closes }}</p>
+              <p>To: {{ place.opening_hours.hours[3].opens }}  - {{ place.opening_hours.hours[3].closes }}</p>
+              <p>Pe: {{ place.opening_hours.hours[4].opens }}  - {{ place.opening_hours.hours[4].closes }}</p>
+              <p>La: {{ place.opening_hours.hours[5].opens }}  - {{ place.opening_hours.hours[5].closes }}</p>
+              <p>Su: {{ place.opening_hours.hours[6].opens }}  - {{ place.opening_hours.hours[6].closes }}</p>
+              <img src="https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-10/14657520_1627162420917017_2082522418259513419_n.jpg?h=1555b8b2&itok=hLcepjKl" alt="">
+              <hr />
+            </details>
+
+          </div>
+
+          <!-- <mat-accordion>
             <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places">
               
                 <mat-expansion-panel-header>
@@ -49,12 +70,12 @@
                     {{place.name.fi}} 
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-                <!-- <h2 class="mb-0"></h2> -->
-                <!-- <a
+                <h2 class="mb-0"></h2>
+                <a
                   routerLink="{{ '/places-detail/' + place.id }}"
                   class="place-title"
                   >{{ place.name.fi }}</a
-                > -->
+                >
               
              
               <p class="mb-0 opacity-75">{{ place.description.body }}</p>
@@ -81,7 +102,7 @@
               <img src="https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-10/14657520_1627162420917017_2082522418259513419_n.jpg?h=1555b8b2&itok=hLcepjKl" alt="">
               <hr />
             </mat-expansion-panel>
-          </mat-accordion>
+          </mat-accordion> -->
         </cdk-virtual-scroll-viewport>
       </ng-container>
     </article>

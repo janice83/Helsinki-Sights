@@ -18,7 +18,8 @@ import { PopupService } from './popup.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
-import { MatExpansionModule } from '@angular/material/expansion'; 
+import { MatExpansionModule } from '@angular/material/expansion';
+import { EventsComponent } from './events/events.component'; 
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     BackButtonDirective,
     PlacesDetailComponent,
     FooterComponent,
-    MapComponent
+    MapComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

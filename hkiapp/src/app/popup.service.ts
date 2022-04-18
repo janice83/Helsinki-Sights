@@ -19,4 +19,11 @@ export class PopupService {
     return `` +
     `<div>Olet Tässä!</div>`
   }
+
+  // creates popup for event on map 
+  makeEventPopup(data: any): string {
+    return `` +
+    `<div>Nimi: ${data.name.fi}</div>`
+    // `<div><a routerLink="${'/places-detail/' + data.id }>Nimi: ${data.name.fi}</a></div>`
+  }
 }

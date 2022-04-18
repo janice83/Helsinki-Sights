@@ -1,0 +1,39 @@
+.list-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list-page >* {
+    flex-basis: 45%;
+}
+
+#map {
+    height: 60vh;
+    width: 80vh;
+    margin: 0 5rem 0 1rem;
+}
+
+#input-field {
+    margin: 1rem 1rem;
+}
+.sort {
+    margin: 0 0 5rem 1rem;
+}
+
+.content {
+    height: 80vh;
+    max-width: auto;
+    border: 1px solid grey;
+    
+}
+
+.list-item{
+    list-style: none;
+    padding: 5px;
+    
+}
+
+.list-page-content {
+    padding: 2rem;
+}

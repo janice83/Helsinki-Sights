@@ -41,4 +41,18 @@ export class MarkerService {
     })
     
   }
+
+  // creates markers for events and add to map
+  makeEventsMarkers(map: L.Map): void {
+    this.http.get(this.places).subscribe((res: any) => {
+      for(const p of res) {
+        const lon = p.location.lon;
+        const lat = p.location.lat;
+        const marker = L.marker([lat, lon]);
+
+        marker.bindPopup(this.popupService.makeEventPopup(p));
+        marker.addTo(map);
+      }
+    })
+  }
 }

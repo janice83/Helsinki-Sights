@@ -22,6 +22,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { EventsComponent } from './events/events.component';
 import { EventsMapComponent } from './events-map/events-map.component';
 import { SortDatePipe } from './sort-date.pipe';
+import { ActivitiesComponent } from './activities/activities.component';
+import { ActivitiesMapComponent } from './activities-map/activities-map.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { SortDatePipe } from './sort-date.pipe';
     MapComponent,
     EventsComponent,
     EventsMapComponent,
-    SortDatePipe
+    SortDatePipe,
+    ActivitiesComponent,
+    ActivitiesMapComponent
   ],
   imports: [
     BrowserModule,

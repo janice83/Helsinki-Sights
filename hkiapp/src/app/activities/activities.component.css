@@ -1,0 +1,45 @@
+.list-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.list-page > * {
+  flex-basis: 45%;
+}
+.content {
+  height: 90vh;
+  max-width: auto;
+  border: 1px solid grey;
+}
+
+.list-item {
+  padding: 1rem;
+}
+
+.company-address-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.address {
+  margin: 0 2rem;
+}
+
+.show-details-button {
+  padding: 3px;
+  margin: 8px 0;
+}
+
+#input-field {
+    margin: 1rem 1rem;
+}
+.sort {
+    margin: 0 0 5rem 1rem;
+}
+
+.link-info {
+    color: darkturquoise;
+    text-decoration: none;
+}

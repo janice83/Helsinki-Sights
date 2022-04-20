@@ -26,4 +26,15 @@ export class PopupService {
     `<div>Nimi: ${data.name.fi}</div>`
     // `<div><a routerLink="${'/places-detail/' + data.id }>Nimi: ${data.name.fi}</a></div>`
   }
+
+   // Creates popup for activities
+   makeActivitiesPopup(data:any): string {
+    if(data.descriptions.fi == undefined){
+    return `` +
+    `<div> ${data.descriptions.en.name}</div>`
+  }else {
+    return `` +
+    `<div> ${data.descriptions.fi.name}</div>`
+  }
+  }
 }

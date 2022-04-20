@@ -1,0 +1,123 @@
+<main>
+  <section class="list-page">
+    <article>
+      <div class="col col-lg-2">
+        <input placeholder="Search" type="search" id="input-field" />
+        <select class="sort">
+          <option value="search" selected disabled hidden>Search by</option>
+          <option value="age"></option>
+          <option value="name"></option>
+        </select>
+      </div>
+      <app-back-button></app-back-button>
+      <app-activities-map></app-activities-map>
+    </article>
+    <article>
+      <!-- Here starts the scrolling list using Cdk virtual scrolling -->
+      <ng-container
+        class="list-group-item list-group-item-action d-flex gap-3 py-3"
+        aria-current="true"
+      >
+        <cdk-virtual-scroll-viewport itemSize="50" class="content">
+          <mat-accordion>
+            <mat-expansion-panel
+              class="list-item"
+              *cdkVirtualFor="let activity of activities; let i = index"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title
+                  class="mb-0"
+                  *ngIf="hasProp(activity.descriptions, 'fi'); else fiName"
+                >
+                  <p>{{ activity.descriptions.fi.name }}</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <ng-template #fiName
+                ><p>{{ activity.descriptions.en.name }}</p></ng-template
+              >
+              <a
+                class="mb-0 opacity-75 link-info"
+                target="_blank"
+                href="{{ activity.siteUrl }}"
+                onclick="window.open(this.href,'_blank');"
+                rel="noopener noreferrer"
+              >
+                {{ activity.siteUrl }}
+              </a>
+              <p *ngIf="hasProp(activity.descriptions, 'fi'); else fi">
+                {{ activity.descriptions.fi.description }}
+              </p>
+              <ng-template #fi>{{
+                activity.descriptions.en.description
+              }}</ng-template>
+              <p *ngIf="activity.duration == ''; else activityDuration">
+                Toiminnan kesto:
+                <fa-icon [icon]="faMinus"></fa-icon>
+              </p>
+              <ng-template #activityDuration>
+                <p>
+                  Toiminnan kesto: {{ activity.duration }}
+                  {{ activity.durationType }}
+                </p>
+              </ng-template>
+              <p>
+                Hinta: {{ activity.priceEUR.from | currency: "EUR" }} -
+                {{ activity.priceEUR.to | currency: "EUR" }}
+              </p>
+              <!-- <p>Hinnoittelun tyyppi: {{ activity.priceEUR.pricingType }}</p> -->
+              <!-- <p>Toiminta tarkoitettu: {{ activity.meantFor }}</p> -->
+              <div class="company-address-info">
+                <p>
+                  Yhtiö: <br />
+                  {{ activity.company.name }} <br />
+                  {{ activity.company.businessId }} <br />
+                  {{ activity.company.email }} <br />
+                  {{ activity.company.phone }}
+                </p>
+                <p class="address">
+                  Osoite: <br />{{ activity.address.postalCode }} <br />
+                  {{ activity.address.streetName }} <br />{{
+                    activity.address.city
+                  }}
+                </p>
+                <p>
+                  Aukioloajat: <br />
+                  Ma: {{ activity.open.monday.from | slice: 0:5 }} -
+                  {{ activity.open.monday.to | slice: 0:5 }} <br />
+                  Ti: {{ activity.open.tuesday.from | slice: 0:5 }} -
+                  {{ activity.open.tuesday.to | slice: 0:5 }} <br />
+                  Ke: {{ activity.open.wednesday.from | slice: 0:5 }} -
+                  {{ activity.open.wednesday.to | slice: 0:5 }} <br />
+                  To: {{ activity.open.thursday.from | slice: 0:5 }} -
+                  {{ activity.open.thursday.to | slice: 0:5 }} <br />
+                  Pe: {{ activity.open.friday.from | slice: 0:5 }} -
+                  {{ activity.open.friday.to | slice: 0:5 }} <br />
+                  La: {{ activity.open.saturday.from | slice: 0:5 }} -
+                  {{ activity.open.saturday.to | slice: 0:5 }} <br />
+                  Su: {{ activity.open.sunday.from | slice: 0:5 }} -
+                  {{ activity.open.sunday.to | slice: 0:5 }}
+                </p>
+                <div>
+                    <figure *ngFor="let image of activity.media">
+                      <img src="{{ image.smallUrl }}" alt="{{ image.alt }}" />
+                      <p>&copy;{{ image.copyright }}</p>
+                    </figure>
+                </div>
+              </div>
+              <a
+                class="mb-0 opacity-75"
+                target="_blank"
+                href="{{ activity.storeUrl }}"
+                onclick="window.open(this.href,'_blank');"
+                rel="noopener noreferrer"
+              >
+                {{ activity.storeUrl }}
+              </a>
+              <hr />
+            </mat-expansion-panel>
+          </mat-accordion>
+        </cdk-virtual-scroll-viewport>
+      </ng-container>
+    </article>
+  </section>
+</main>

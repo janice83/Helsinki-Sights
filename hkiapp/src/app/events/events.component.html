@@ -10,7 +10,7 @@
           </select>
         </div>
         <app-back-button></app-back-button>
-        <app-map></app-map>
+        <app-events-map></app-events-map>
       </article>
       <article>
         <!-- Old version of Places List -->
@@ -40,13 +40,13 @@
           class="list-group-item list-group-item-action d-flex gap-3 py-3"
           aria-current="true"
         >
-          <cdk-virtual-scroll-viewport itemSize="100" class="content">
+          <cdk-virtual-scroll-viewport itemSize="50" class="content">
             <mat-accordion>
-              <mat-expansion-panel class="list-item" *cdkVirtualFor="let event of events">
+              <mat-expansion-panel class="list-item" *cdkVirtualFor="let event of events | sortDate : 'event.event_dates.starting_day';">
                 
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      {{event.name.fi}} 
+                      <h6>{{event.name.fi}} - {{ event.event_dates.starting_day | date: 'medium' }} </h6>
                     </mat-panel-title>
                   </mat-expansion-panel-header>
                   <!-- <h2 class="mb-0"></h2> -->

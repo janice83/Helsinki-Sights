@@ -19,8 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { EventsComponent } from './events/events.component'; 
-
+import { EventsComponent } from './events/events.component';
+import { EventsMapComponent } from './events-map/events-map.component';
+import { SortDatePipe } from './sort-date.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { EventsComponent } from './events/events.component';
     PlacesDetailComponent,
     FooterComponent,
     MapComponent,
-    EventsComponent
+    EventsComponent,
+    EventsMapComponent,
+    SortDatePipe
   ],
   imports: [
     BrowserModule,

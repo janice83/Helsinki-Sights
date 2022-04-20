@@ -22,7 +22,7 @@
 }
 
 .content {
-    height: 80vh;
+    height: 85vh;
     max-width: auto;
     border: 1px solid grey;
     
@@ -36,4 +36,5 @@
 
 .list-page-content {
     padding: 2rem;
+    background-color: rgb(74, 115, 113);
 }

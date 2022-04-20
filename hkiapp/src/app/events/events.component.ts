@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../events.service';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 @Component({
   selector: 'app-events',

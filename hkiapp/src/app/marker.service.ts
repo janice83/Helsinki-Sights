@@ -9,6 +9,7 @@ import { PopupService } from './popup.service';
 })
 export class MarkerService {
   places: string = '/assets/data/places.json';
+  events: string = 'assets/data/events.json';
 
 
   constructor(private http: HttpClient, private popupService: PopupService) { }
@@ -44,7 +45,7 @@ export class MarkerService {
 
   // creates markers for events and add to map
   makeEventsMarkers(map: L.Map): void {
-    this.http.get(this.places).subscribe((res: any) => {
+    this.http.get(this.events).subscribe((res: any) => {
       for(const p of res) {
         const lon = p.location.lon;
         const lat = p.location.lat;

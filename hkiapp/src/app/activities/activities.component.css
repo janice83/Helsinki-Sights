@@ -8,8 +8,9 @@
   flex-basis: 45%;
 }
 .content {
-  height: 90vh;
-  max-width: auto;
+  min-height: 100%;
+  height: 700px;
+  width: 115%;
   border: 1px solid grey;
 }
 

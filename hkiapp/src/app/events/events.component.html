@@ -11,7 +11,6 @@
             <option value="name"></option>
           </select>
         </div>
-        <app-back-button></app-back-button>
         <app-events-map></app-events-map>
       </article>
       <article>
@@ -33,7 +32,7 @@
                   </mat-expansion-panel-header>
                 
                   <a
-                  class="mb-0 opacity-75 link-info"
+                  class="mb-0 link-info"
                   target="_blank"
                   href="{{ event.info_url }}"
                   onclick="window.open(this.href,'_blank');"
@@ -41,17 +40,17 @@
                 >
                   {{ event.info_url }}
                 </a>
-                <p class="mb-0 opacity-75">{{ event.description.intro }}</p>
+                <p class="mb-0">{{ event.description.intro }}</p>
                 <p></p>
                 <p>Alkaa: {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} </p>
                 <p>Loppuu: {{ event.event_dates.ending_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.ending_day | date: 'HH:mm'}} </p>
 
-                <p class="mb-0 opacity-75">{{ event.description.body }}</p>
+                <p class="mb-0">{{ event.description.body }}</p>
                 
                 <p></p>
-                <p class="mb-0 opacity-75">Osoite: {{ event.location.address.street_address }}</p>
-                <p class="mb-0 opacity-75"> {{ event.location.address.postal_code }}</p>
-                <p class="mb-0 opacity-75"> {{ event.location.address.locality }}</p>
+                <p class="mb-0">Osoite: {{ event.location.address.street_address }}</p>
+                <p class="mb-0"> {{ event.location.address.postal_code }}</p>
+                <p class="mb-0"> {{ event.location.address.locality }}</p>
                 <figure class="event_image" *ngFor="let image of event.description.images">
                   <img src="{{image.url}}" alt="">
                   <p>&copy;{{ image.copyright_holder }} {{ image.license_type.name }}</p>

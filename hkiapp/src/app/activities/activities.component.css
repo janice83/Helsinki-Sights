@@ -8,14 +8,25 @@
   flex-basis: 45%;
 }
 .content {
+  border: 0.4rem solid rgb(154, 146, 98);
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.728);
+  color: white;
+  margin: 1rem;
   min-height: 100%;
   height: 700px;
   width: 115%;
-  border: 1px solid grey;
 }
+
+.list-page-content {
+  padding: 2rem;
+}
+
 
 .list-item {
   padding: 1rem;
+  background-color: black;
+
 }
 
 .company-address-info {
@@ -40,11 +51,29 @@
     margin: 0 0 5rem 1rem;
 }
 
-.link-info {
+/* .link-info {
     color: darkturquoise;
     text-decoration: none;
-}
+} */
 
 .photo-layout{
   margin: 0 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .list-page >* {
+      flex-basis: 100%;
+  }
+
+  .list-page-content {
+      padding: 1rem;
+  }
+
+  .content {
+      width: 150vw;
+  }
+
+  p {
+    font-size: 1rem;
+  }
 }

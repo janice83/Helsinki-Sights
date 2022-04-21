@@ -8,12 +8,6 @@
     flex-basis: 45%;
 }
 
-#map {
-    height: 60vh;
-    width: 80vh;
-    margin: 0 5rem 0 1rem;
-}
-
 #input-field {
     margin: 1rem 1rem;
 }
@@ -35,17 +29,17 @@
 .list-item{
     list-style: none;
     padding: 5px;
-    
+    background-color: black;
 }
 
 .list-page-content {
     padding: 2rem;
 }
 
-.link-info {
+/* .link-info {
     color: darkturquoise;
     text-decoration: none;
-}
+} */
 
 .company-address-info {
     display: flex;
@@ -66,4 +60,19 @@ margin: 0 2rem 0 0;
 .tags >* {
     flex-basis: 20%;
 }
+
+@media only screen and (max-width: 600px) {
+    .list-page >* {
+        flex-basis: 100%;
+    }
+
+    .list-page-content {
+        padding: 1rem;
+    }
+
+    .content {
+        width: 150vw;
+    }
+  }
+  
   

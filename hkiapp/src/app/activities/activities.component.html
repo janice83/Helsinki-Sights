@@ -1,4 +1,4 @@
-<main>
+<main class="list-page-content">
   <app-topnav></app-topnav>
 
   <section class="list-page">
@@ -11,7 +11,6 @@
           <option value="name"></option>
         </select>
       </div>
-      <app-back-button></app-back-button>
       <app-activities-map></app-activities-map>
     </article>
     <article>
@@ -31,21 +30,22 @@
                   class="mb-0"
                   *ngIf="hasProp(activity.descriptions, 'fi'); else fiName"
                 >
-                  <p>{{ activity.descriptions.fi.name }}</p>
+                  {{ activity.descriptions.fi.name }}
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ng-template #fiName
-                ><p>{{ activity.descriptions.en.name }}</p></ng-template
+                >{{ activity.descriptions.en.name }}</ng-template
               >
               <a
-                class="mb-0 opacity-75 link-info"
+                class="mb-0 opacity-75"
                 target="_blank"
                 href="{{ activity.siteUrl }}"
                 onclick="window.open(this.href,'_blank');"
                 rel="noopener noreferrer"
               >
-                {{ activity.siteUrl }}
+                Linkki kotisivulle
               </a>
+              <p></p>
               <p *ngIf="hasProp(activity.descriptions, 'fi'); else fi">
                 {{ activity.descriptions.fi.description }}
               </p>
@@ -64,7 +64,8 @@
                   {{ activity.durationType }}
                 </p>
               </ng-template>
-              <p>Saatavilla olevat kuukaudet: {{ activity.availableMonths }}</p>
+              <!-- Jatka täältä kuukausien työstämistä! -->
+              <!-- <p>Saatavilla olevat kuukaudet: {{ activity.availableMonths[0] }}</p> -->
               <p>
                 Hinta: {{ activity.priceEUR.from | currency: "EUR" }} -
                 {{ activity.priceEUR.to | currency: "EUR" }}

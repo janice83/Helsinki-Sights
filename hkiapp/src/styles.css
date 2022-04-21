@@ -32,3 +32,14 @@ a {
     text-decoration: none;
     color: rgb(154, 146, 98);
 }
+
+a:hover {
+    color: darkturquoise;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-size: cover;
+    }
+  }

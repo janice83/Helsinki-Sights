@@ -98,8 +98,11 @@
                   Su: {{ activity.open.sunday.from | slice: 0:5 }} -
                   {{ activity.open.sunday.to | slice: 0:5 }}
                 </p>
-                <figure *ngFor="let image of activity.media">
-                  <img src="{{ image.smallUrl }}" alt="{{ image.alt }}" />
+                
+              </div>
+              <div>
+                <figure class="figure" *ngFor="let image of activity.media">
+                  <img class="figure-img img-fluid rounded photo-layout" src="{{ image.smallUrl }}" alt="{{ image.alt }}" />
                   <p>&copy;{{ image.copyright }}</p>
                 </figure>
               </div>

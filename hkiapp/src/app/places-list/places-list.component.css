@@ -60,7 +60,7 @@ margin: 0 2rem 0 0;
 .tags {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .tags >* {

@@ -8,7 +8,6 @@ import { EventsComponent } from './events/events.component';
 import { ActivitiesComponent } from './activities/activities.component';
 
 const routes: Routes = [
-  { path: 'places-detail/:id', component: PlacesDetailComponent },
   { path: 'front-page', component: FrontPageComponent},
   { path: 'places-list', component: PlacesListComponent },
   { path: '', redirectTo: '/front-page', pathMatch: 'full'},

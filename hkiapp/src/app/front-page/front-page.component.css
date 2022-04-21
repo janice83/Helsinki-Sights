@@ -1,26 +1,17 @@
-
-main {
-    margin-top: 5rem;
-}
-
-.helsinki-img {
-    background-image: url("../../assets/images/helsinki.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    padding: 2rem;
-}
-
-.places-img {
-    background-image: url("../../assets/images/railway-men.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+.helsinki-img {   
+    padding-top: 12rem;
 }
 
 .introduction-text {
-    margin: 1.5rem;
-    background-color: rgba(77, 76, 76, 0.712);
-    padding: 2rem;
-    color: white;
+    font-size: 2.5rem;
+    background-position-y: -10rem;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.801);
+    padding: 1rem;
+    text-align: center;
+    color: rgb(154, 146, 98);
+    border: 1px solid rgb(154, 146, 98);
+    border-radius: 5rem;
 }
 
 .list-links {
@@ -30,9 +21,37 @@ main {
 }
 
 .list-links>* {
-
+    text-align: center;
+/*    margin: 0;
+    padding: 0rem;
+    text-align: center;
+    color: rgb(154, 146, 98);
+    border-radius: 0rem;
+*/
 }
 
-.round-img {
+.btn {
+    font-size: 3rem;
+/*     background-color: transparent;
+ */    border: 2rem solid;
+}
+
+.btn:hover {
+    background-color: aqua;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    color: rgb(154, 146, 98);
+    border-color: rgba(154, 146, 98, 0.438);
+    background-color: rgba(0, 0, 0, 0.664); 
+}
+
+/* .round-img {
     text-align: center;
 }
+
+.bd-placeholder-img {
+    border: 0.1rem solid rgb(154, 146, 98) ;
+    border-radius: 5px;
+} */

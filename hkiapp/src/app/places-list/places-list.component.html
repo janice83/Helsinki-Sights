@@ -1,89 +1,93 @@
-<main class="list-page-content">
-  <section class="list-page">
-    <article>
-      <div class="col col-lg-2">
-        <input placeholder="Search" type="search" id="input-field" />
-        <select class="sort">
-          <option value="search" selected disabled hidden>Search by</option>
-          <option value="age"></option>
-          <option value="name"></option>
-        </select>
-      </div>
-      <app-back-button></app-back-button>
-      <app-map></app-map>
-    </article>
-    <article>
-      <!-- Old version of Places List -->
-      <!-- <div class="list-group">
-                <div *ngFor="let place of places" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"> -->
-      <!-- <figure class="rounded float-start rounded-circle flex-shrink-0">
-                        <img src="../../assets/img/phones/{{ phone.id }}.0.jpg" alt="">
-                        <img src="{{'assets/img/phones/' + phone.id }}.0.jpg" alt="">
-      
-                    </figure> -->
-      <!-- <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h2 class="mb-0"><a routerLink="{{'/places-detail/' + place.id }}">{{ place.name.fi }}</a></h2>
-                        <p class="mb-0 opacity-75">{{ place.description.body }}</p> -->
-      <!-- <p class="mb-0 opacity-75">{{ place.info_url }}</p> -->
-      <!-- <a class="mb-0 opacity-75" target="_blank" href="{{place.info_url}}"  onclick="window.open(this.href,'_blank');" rel="noopener noreferrer" >
-                            {{place.info_url}}
-                         </a>
+<body>
+  <app-topnav></app-topnav>
+  <main class="list-page-content">    
+    <section class="list-page">
+      <article>
+        <div class="col col-lg-2">
+          <input placeholder="Search" type="search" id="input-field" />
+          <select class="sort">
+            <option value="search" selected disabled hidden>Search by</option>
+            <option value="age"></option>
+            <option value="name"></option>
+          </select>
+        </div>
+
+        <app-map></app-map>
+      </article>
+      <article>
+        <!-- Old version of Places List -->
+        <!-- <div class="list-group">
+                  <div *ngFor="let place of places" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"> -->
+        <!-- <figure class="rounded float-start rounded-circle flex-shrink-0">
+                          <img src="../../assets/img/phones/{{ phone.id }}.0.jpg" alt="">
+                          <img src="{{'assets/img/phones/' + phone.id }}.0.jpg" alt="">
+  
+                      </figure> -->
+        <!-- <div class="d-flex gap-2 w-100 justify-content-between">
+                      <div>
+                          <h2 class="mb-0"><a routerLink="{{'/places-detail/' + place.id }}">{{ place.name.fi }}</a></h2>
+                          <p class="mb-0 opacity-75">{{ place.description.body }}</p> -->
+        <!-- <p class="mb-0 opacity-75">{{ place.info_url }}</p> -->
+        <!-- <a class="mb-0 opacity-75" target="_blank" href="{{place.info_url}}"  onclick="window.open(this.href,'_blank');" rel="noopener noreferrer" >
+                              {{place.info_url}}
+                           </a>
+                      </div>
                     </div>
                   </div>
-                </div> 
-            </div>   -->
-      <!-- <a routerLink="{{'/places-detail/' + place.id }}></a>" -->
-
-      <!-- Here starts the scrolling list using Cdk virtual scrolling -->
-      <ng-container
-        class="list-group-item list-group-item-action d-flex gap-3 py-3"
-        aria-current="true"
-      >
-        <cdk-virtual-scroll-viewport itemSize="50" class="content">
-          <mat-accordion>
-            <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places">
-              
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{place.name.fi}} 
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <h2 class="mb-0"></h2>
+              </div>   -->
+        <!-- <a routerLink="{{'/places-detail/' + place.id }}></a>" -->
+  
+        <!-- Here starts the scrolling list using Cdk virtual scrolling -->
+        <ng-container
+          class="list-group-item list-group-item-action d-flex gap-3 py-3"
+          aria-current="true"
+        >
+          <cdk-virtual-scroll-viewport itemSize="50" class="content">
+            <mat-accordion>
+              <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places">
+  
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{place.name.fi}}
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <h2 class="mb-0"></h2>
+                  <a
+                    routerLink="{{ '/places-detail/' + place.id }}"
+                    class="place-title"
+                    >{{ place.name.fi }}</a
+                  >
+  
+  
+                <p class="mb-0 opacity-75">{{ place.description.body }}</p>
                 <a
-                  routerLink="{{ '/places-detail/' + place.id }}"
-                  class="place-title"
-                  >{{ place.name.fi }}</a
+                  class="mb-0 opacity-75"
+                  target="_blank"
+                  href="{{ place.info_url }}"
+                  onclick="window.open(this.href,'_blank');"
+                  rel="noopener noreferrer"
                 >
-              
-             
-              <p class="mb-0 opacity-75">{{ place.description.body }}</p>
-              <a
-                class="mb-0 opacity-75"
-                target="_blank"
-                href="{{ place.info_url }}"
-                onclick="window.open(this.href,'_blank');"
-                rel="noopener noreferrer"
-              >
-                {{ place.info_url }}
-              </a>
-              <p class="mb-0 opacity-75">Osoite: {{ place.location.address.street_address }}</p>
-              <p class="mb-0 opacity-75"> {{ place.location.address.postal_code }}</p>
-              <p class="mb-0 opacity-75"> {{ place.location.address.locality }}</p>
-              <p>Aukioloajat:</p>
-              <p>Ma: {{ place.opening_hours.hours[0].opens }}  - {{ place.opening_hours.hours[0].closes }}</p>
-              <p>Ti: {{ place.opening_hours.hours[1].opens }}  - {{ place.opening_hours.hours[1].closes }}</p>
-              <p>Ke: {{ place.opening_hours.hours[2].opens }}  - {{ place.opening_hours.hours[2].closes }}</p>
-              <p>To: {{ place.opening_hours.hours[3].opens }}  - {{ place.opening_hours.hours[3].closes }}</p>
-              <p>Pe: {{ place.opening_hours.hours[4].opens }}  - {{ place.opening_hours.hours[4].closes }}</p>
-              <p>La: {{ place.opening_hours.hours[5].opens }}  - {{ place.opening_hours.hours[5].closes }}</p>
-              <p>Su: {{ place.opening_hours.hours[6].opens }}  - {{ place.opening_hours.hours[6].closes }}</p>
-              <img src="https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-10/14657520_1627162420917017_2082522418259513419_n.jpg?h=1555b8b2&itok=hLcepjKl" alt="">
-              <hr />
-            </mat-expansion-panel>
-          </mat-accordion>
-        </cdk-virtual-scroll-viewport>
-      </ng-container>
-    </article>
-  </section>
-</main>
+                  {{ place.info_url }}
+                </a>
+                <p class="mb-0 opacity-75">Osoite: {{ place.location.address.street_address }}</p>
+                <p class="mb-0 opacity-75"> {{ place.location.address.postal_code }}</p>
+                <p class="mb-0 opacity-75"> {{ place.location.address.locality }}</p>
+                <p>Aukioloajat:</p>
+                <p>Ma: {{ place.opening_hours.hours[0].opens }}  - {{ place.opening_hours.hours[0].closes }}</p>
+                <p>Ti: {{ place.opening_hours.hours[1].opens }}  - {{ place.opening_hours.hours[1].closes }}</p>
+                <p>Ke: {{ place.opening_hours.hours[2].opens }}  - {{ place.opening_hours.hours[2].closes }}</p>
+                <p>To: {{ place.opening_hours.hours[3].opens }}  - {{ place.opening_hours.hours[3].closes }}</p>
+                <p>Pe: {{ place.opening_hours.hours[4].opens }}  - {{ place.opening_hours.hours[4].closes }}</p>
+                <p>La: {{ place.opening_hours.hours[5].opens }}  - {{ place.opening_hours.hours[5].closes }}</p>
+                <p>Su: {{ place.opening_hours.hours[6].opens }}  - {{ place.opening_hours.hours[6].closes }}</p>
+                <img src="https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-10/14657520_1627162420917017_2082522418259513419_n.jpg?h=1555b8b2&itok=hLcepjKl" alt="">
+                <hr />
+              </mat-expansion-panel>
+            </mat-accordion>
+          </cdk-virtual-scroll-viewport>
+        </ng-container>
+      </article>
+    </section>
+  </main>
+  <app-footer></app-footer>
+</body>

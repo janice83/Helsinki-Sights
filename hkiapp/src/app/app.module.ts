@@ -24,6 +24,7 @@ import { EventsMapComponent } from './events-map/events-map.component';
 import { SortDatePipe } from './sort-date.pipe';
 import { ActivitiesComponent } from './activities/activities.component';
 import { ActivitiesMapComponent } from './activities-map/activities-map.component';
+import { TopnavComponent } from './topnav/topnav.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ActivitiesMapComponent } from './activities-map/activities-map.componen
     EventsMapComponent,
     SortDatePipe,
     ActivitiesComponent,
-    ActivitiesMapComponent
+    ActivitiesMapComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,

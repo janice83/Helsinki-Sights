@@ -24,7 +24,11 @@
 .content {
     height: 85vh;
     max-width: auto;
-    border: 1px solid grey;
+    border: 0.4rem solid rgb(154, 146, 98);
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.728);
+    color: white;
+    margin: 1rem;
     
 }
 

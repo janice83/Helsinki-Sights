@@ -38,3 +38,29 @@
 .list-page-content {
     padding: 2rem;
 }
+
+.link-info {
+    color: darkturquoise;
+    text-decoration: none;
+}
+
+.company-address-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.address {
+margin: 0 2rem 0 0;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.tags >* {
+    flex-basis: 20%;
+}
+  

@@ -12,7 +12,7 @@ export class PopupService {
     return `` +
     `<div> <h6>${data.name.fi}</h6> 
     <a target="_blank" href="${ data.info_url }"> ${data.info_url} </a>
-    <p>${data.location.address.street_address} 
+    <p>Osoite:<br>${data.location.address.street_address} 
     <br> ${data.location.address.postal_code} 
     <br> ${data.location.address.locality}</p>
     </div>`
@@ -31,13 +31,17 @@ export class PopupService {
     if(data.info_url == null || data.info_url == undefined) {
       data.info_url = "";
     }
-    const aika = new Date(data.event_dates.starting_day).toLocaleString('en-GB');
+    const aika_alkaa = new Date(data.event_dates.starting_day).toLocaleString('en-GB');
+    const aika_loppuu = new Date(data.event_dates.ending_day).toLocaleString('en-GB');
     return `` +
-    `<div>Nimi: ${data.name.fi}
+    `<div>
+    <h6>${data.name.fi} </h6><p>${data.description.intro}</p>
     <a class="mb-0 opacity-75 link-info" target="_blank" href="{{ data.info_url }}" onclick="window.open(this.href,'_blank');
     "rel="noopener noreferrer">${ data.info_url }</a>
-    <p>Aika: ${aika}</p>
-    <p>Osoite: ${data.location.address.street_address}, ${data.location.address.postal_code} ${data.location.address.locality}
+    <p>Alkaa: ${aika_alkaa}<br>
+    Loppuu: ${aika_loppuu}</p>
+    <p>Osoite:<br> 
+    ${data.location.address.street_address} <br>${data.location.address.postal_code} <br>${data.location.address.locality}</p>
     </div>`
     // `<div><a routerLink="${'/places-detail/' + data.id }>Nimi: ${data.name.fi}</a></div>`
   }
@@ -55,7 +59,7 @@ export class PopupService {
     `<div> 
     <h6>${data.descriptions.fi.name}</h6>
     <a target="_blank" href="${ data.siteUrl }"> ${ data.siteUrl } </a>
-    <p>${ data.address.streetName }
+    <p>Osoite:<br> ${ data.address.streetName }
     <br>${ data.address.postalCode }
     <br>${ data.address.city }</p>
     </div>`

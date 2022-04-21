@@ -17,12 +17,11 @@ export class EventsComponent implements OnInit {
     this.getAllEvents();
   }
 
-
+  // gets all events and sorts them in ascending order according to starting date
   getAllEvents(): void {
     this.eventsService.getAllEvents().subscribe((res: any) => {
-      this.events = res
-      this.events.sort((b: { date1: string | number | Date; }, a: { date1: string | number | Date; }) => new Date(b.date1).getTime() - new Date(a.date1).getTime());
-      // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
+      this.events = res;
+      this.events.sort((x: { event_dates: { starting_day: string | number | Date; }; }, y: { event_dates: { starting_day: string | number | Date; }; }) => +new Date(x.event_dates.starting_day) - +new Date(y.event_dates.starting_day));
       console.log(this.events)
     })
   }

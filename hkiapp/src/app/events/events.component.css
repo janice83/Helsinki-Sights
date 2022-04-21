@@ -39,3 +39,7 @@
     padding: 2rem;
     background-color: rgb(74, 115, 113);
 }
+
+.event_image img {
+    height: 8rem;
+}

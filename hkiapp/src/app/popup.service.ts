@@ -23,7 +23,10 @@ export class PopupService {
   // creates popup for event on map 
   makeEventPopup(data: any): string {
     return `` +
-    `<div>Nimi: ${data.name.fi}</div>`
+    `<div>Nimi: ${data.name.fi}
+    <p>Aika: ${data.event_dates.starting_day}</p>
+    <p>Osoite: ${data.location.address.street_address}, ${data.location.address.postal_code} ${data.location.address.locality}
+    </div>`
     // `<div><a routerLink="${'/places-detail/' + data.id }>Nimi: ${data.name.fi}</a></div>`
   }
 

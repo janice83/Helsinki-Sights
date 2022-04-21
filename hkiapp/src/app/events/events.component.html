@@ -46,7 +46,7 @@
                 
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      <h6>{{event.name.fi}} - {{ event.event_dates.starting_day | date: 'medium' }} </h6>
+                      <h6>{{event.name.fi}} - {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}}</h6>
                     </mat-panel-title>
                   </mat-expansion-panel-header>
                   <!-- <h2 class="mb-0"></h2> -->
@@ -57,6 +57,9 @@
                   > -->
                 
                 <p class="mb-0 opacity-75">{{ event.description.intro }}</p>
+                <p></p>
+                <p>Alkaa: {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} </p>
+                <p>Loppuu: {{ event.event_dates.ending_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.ending_day | date: 'HH:mm'}} </p>
 
                 <p class="mb-0 opacity-75">{{ event.description.body }}</p>
                 <a
@@ -68,18 +71,14 @@
                 >
                   {{ event.info_url }}
                 </a>
+                <p></p>
                 <p class="mb-0 opacity-75">Osoite: {{ event.location.address.street_address }}</p>
                 <p class="mb-0 opacity-75"> {{ event.location.address.postal_code }}</p>
                 <p class="mb-0 opacity-75"> {{ event.location.address.locality }}</p>
-                <!-- <p>Aukioloajat:</p>
-                <p>Ma: {{ place.opening_hours.hours[0].opens }}  - {{ place.opening_hours.hours[0].closes }}</p>
-                <p>Ti: {{ place.opening_hours.hours[1].opens }}  - {{ place.opening_hours.hours[1].closes }}</p>
-                <p>Ke: {{ place.opening_hours.hours[2].opens }}  - {{ place.opening_hours.hours[2].closes }}</p>
-                <p>To: {{ place.opening_hours.hours[3].opens }}  - {{ place.opening_hours.hours[3].closes }}</p>
-                <p>Pe: {{ place.opening_hours.hours[4].opens }}  - {{ place.opening_hours.hours[4].closes }}</p>
-                <p>La: {{ place.opening_hours.hours[5].opens }}  - {{ place.opening_hours.hours[5].closes }}</p>
-                <p>Su: {{ place.opening_hours.hours[6].opens }}  - {{ place.opening_hours.hours[6].closes }}</p>
-                <img src="https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-10/14657520_1627162420917017_2082522418259513419_n.jpg?h=1555b8b2&itok=hLcepjKl" alt=""> -->
+                <figure class="event_image" *ngFor="let image of event.description.images">
+                  <img src="{{image.url}}" alt="">
+                  <p>&copy;{{ image.copyright_holder }} {{ image.license_type.name }}</p>
+                </figure>
                 <hr />
               </mat-expansion-panel>
             </mat-accordion>

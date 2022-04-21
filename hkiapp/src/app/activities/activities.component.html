@@ -47,9 +47,11 @@
               <p *ngIf="hasProp(activity.descriptions, 'fi'); else fi">
                 {{ activity.descriptions.fi.description }}
               </p>
-              <ng-template #fi>{{
-                activity.descriptions.en.description
-              }}</ng-template>
+              <ng-template #fi><p>
+                {{
+                  activity.descriptions.en.description
+                }}
+              </p></ng-template>
               <p *ngIf="activity.duration == ''; else activityDuration">
                 Toiminnan kesto:
                 <fa-icon [icon]="faMinus"></fa-icon>

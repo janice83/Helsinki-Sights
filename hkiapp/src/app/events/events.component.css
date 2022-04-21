@@ -40,6 +40,15 @@
     background-color: rgb(74, 115, 113);
 }
 
-.event_image img {
-    height: 8rem;
+.event_image {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
+.event_image >* {
+    height: 8rem;
+    margin: 0.5rem;
+}
+
+

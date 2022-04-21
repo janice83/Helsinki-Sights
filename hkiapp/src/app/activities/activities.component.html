@@ -47,9 +47,11 @@
               <p *ngIf="hasProp(activity.descriptions, 'fi'); else fi">
                 {{ activity.descriptions.fi.description }}
               </p>
-              <ng-template #fi>{{
-                activity.descriptions.en.description
-              }}</ng-template>
+              <ng-template #fi><p>
+                {{
+                  activity.descriptions.en.description
+                }}
+              </p></ng-template>
               <p *ngIf="activity.duration == ''; else activityDuration">
                 Toiminnan kesto:
                 <fa-icon [icon]="faMinus"></fa-icon>
@@ -60,12 +62,12 @@
                   {{ activity.durationType }}
                 </p>
               </ng-template>
+              <p>Available months: {{ activity.availableMonths }}</p>
               <p>
                 Hinta: {{ activity.priceEUR.from | currency: "EUR" }} -
                 {{ activity.priceEUR.to | currency: "EUR" }}
               </p>
-              <!-- <p>Hinnoittelun tyyppi: {{ activity.priceEUR.pricingType }}</p> -->
-              <!-- <p>Toiminta tarkoitettu: {{ activity.meantFor }}</p> -->
+ 
               <div class="company-address-info">
                 <p>
                   Yhtiö: <br />
@@ -97,12 +99,13 @@
                   Su: {{ activity.open.sunday.from | slice: 0:5 }} -
                   {{ activity.open.sunday.to | slice: 0:5 }}
                 </p>
-                <div>
-                    <figure *ngFor="let image of activity.media">
-                      <img src="{{ image.smallUrl }}" alt="{{ image.alt }}" />
-                      <p>&copy;{{ image.copyright }}</p>
-                    </figure>
-                </div>
+                
+              </div>
+              <div>
+                <figure class="figure" *ngFor="let image of activity.media">
+                  <img class="figure-img img-fluid rounded photo-layout" src="{{ image.smallUrl }}" alt="{{ image.alt }}" />
+                  <p>&copy;{{ image.copyright }}</p>
+                </figure>
               </div>
               <a
                 class="mb-0 opacity-75"

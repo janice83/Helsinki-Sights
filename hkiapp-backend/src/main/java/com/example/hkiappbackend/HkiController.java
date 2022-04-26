@@ -32,4 +32,12 @@ public class HkiController {
         return result;
     }
     
+    @GetMapping("/v1/activities")
+    private String getAllActivities(){
+        String url = "https://open-api.myhelsinki.fi/v1/activities/";
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(url, String.class);
+        return result;
+    }
+    
 }

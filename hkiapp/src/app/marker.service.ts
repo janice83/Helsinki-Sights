@@ -20,6 +20,11 @@ export class MarkerService {
     return this.http.get(this.apiUrl + '/v1/places');
   }
 
+  apiEventMarkers() {
+    return this.http.get(this.apiUrl + '/v1/events');
+  }
+
+
   // Creates and add markers for places from open Api
   makePlacesMarkers(map: L.Map): void {
     this.apiPlaceMarkers().subscribe((res: any) => {
@@ -64,9 +69,23 @@ export class MarkerService {
   }
 
   // creates markers for events and add to map
+  // makeEventsMarkers(map: L.Map): void {
+  //   this.http.get(this.events).subscribe((res: any) => {
+  //     for(const p of res) {
+  //       const lon = p.location.lon;
+  //       const lat = p.location.lat;
+  //       const marker = L.marker([lat, lon]);
+
+  //       marker.bindPopup(this.popupService.makeEventPopup(p));
+  //       marker.addTo(map);
+  //     }
+  //   })
+  // }
+  
+   // Creates and add markers for events from open Api
   makeEventsMarkers(map: L.Map): void {
-    this.http.get(this.events).subscribe((res: any) => {
-      for(const p of res) {
+    this.apiEventMarkers().subscribe((res: any) => {
+      for(const p of res.data) {
         const lon = p.location.lon;
         const lat = p.location.lat;
         const marker = L.marker([lat, lon]);
@@ -76,7 +95,6 @@ export class MarkerService {
       }
     })
   }
-
   
   // Create and place markers for activities on the map
   makeActivitiesMarkers(map: L.Map): void {

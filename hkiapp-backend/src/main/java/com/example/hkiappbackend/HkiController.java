@@ -23,5 +23,13 @@ public class HkiController {
         String result = restTemplate.getForObject(url, String.class);
         return result;
     }
+
+    @GetMapping("/v1/events")
+    private String getAllEvents(){
+        String url = "https://open-api.myhelsinki.fi/v1/events/";
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(url, String.class);
+        return result;
+    }
     
 }

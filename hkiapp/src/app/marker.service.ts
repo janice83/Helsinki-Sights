@@ -9,7 +9,7 @@ import { PopupService } from './popup.service';
 })
 export class MarkerService {
   // places: string = '/assets/data/places.json';
-  events: string = 'assets/data/events.json';
+  // events: string = 'assets/data/events.json';
   activities:string = '/assets/data/activities.json';
   private apiUrl = 'http://localhost:8080';
 
@@ -23,6 +23,10 @@ export class MarkerService {
   apiEventMarkers() {
     return this.http.get(this.apiUrl + '/v1/events');
   }
+
+  // apiActivitiesMarkers() {
+  //   return this.http.get(this.apiUrl + '/v1/activities');
+  // }
 
 
   // Creates and add markers for places from open Api
@@ -112,5 +116,22 @@ export class MarkerService {
       }
     });
   }
+
+   // Creates and add markers for activities from open Api
+  // makeActivitiesMarkers(map: L.Map): void {
+  //   this.apiActivitiesMarkers().subscribe((res:any) => {
+  //     for (const p of res.data){
+  //       if(p.address.location !== null) {
+  //         const lat = p.address.location.lat;
+  //       const lon = p.address.location.long;
+  //         const marker = L.marker([lat, lon]);
+  //         marker.bindPopup(this.popupService.makeActivitiesPopup(p));
+  //         marker.addTo(map);
+  //       }else {
+  //         continue;
+  //       }
+  //     }
+  //   });
+  // }
   
 }

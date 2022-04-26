@@ -1,10 +1,10 @@
-export interface Events {
+export interface Activities {
     meta: Meta;
-    data: Event[];
+    data: Activity[];
     tags: Tags[];
 }
 
-export interface Event {
+export interface Activity {
     id: string;
     name: Name;
     sourceType: SourceType;
@@ -13,7 +13,7 @@ export interface Event {
     location: Location;
     description: Description;
     tags: Tag[];
-    eventDates: EventDates;
+    whereWhenDuration: WhereWhenDuration;
 }
 
 export interface Name {
@@ -66,15 +66,21 @@ export interface Tag {
     name: string;
 }
 
-export interface AdditionalDescription {
-    langCode: string;
-    text: string;
+export interface WhereWhenDuration {
+    whereAndWhen: string;
+    duration: string;
 }
 
-export interface EventDates {
-    startingDay: Date;
-    endingDay: Date;
-    additionalDescription: AdditionalDescription[];
+export interface RootObject {
+    id: string;
+    name: Name;
+    sourceType: SourceType;
+    infoUrl: string;
+    modifiedAt: Date;
+    location: Location;
+    description: Description;
+    tags: Tag[];
+    whereWhenDuration: WhereWhenDuration;
 }
 
 export interface Meta {
@@ -82,7 +88,7 @@ export interface Meta {
 }
 
 export interface Tags {
-    id: string;
+    
     name: string; 
 
 }

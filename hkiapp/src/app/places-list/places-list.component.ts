@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { Places } from '../place';
 
 @Component({
   selector: 'app-places-list',
@@ -8,8 +9,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
   styleUrls: ['./places-list.component.css']
 })
 export class PlacesListComponent implements OnInit {
-  places: any = []
+ 
   currentCoords: number[] = [];
+  // places: any = []
+  places: Places[] = [];
 
   constructor(public placesService: PlacesService) { }
 
@@ -18,20 +21,29 @@ export class PlacesListComponent implements OnInit {
     this.getCurrentCoords();
   }
 
-  getAllPlaces(): void {
-    this.placesService.getAllPlaces().subscribe((res: any) => {
-      this.places = res
-      for(const place of this.places) {
-        place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
-      }
-      this.places.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
+  // getAllPlaces(): void {
+  //   this.placesService.getAllPlaces().subscribe((res: any) => {
+  //     this.places = res
+  //     // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
+  //     console.log(this.places)
+  //   })
+  //}
+
+  // Get places from Open Api
+  // getAllPlaces(): void {
+  //   this.placesService.getAllPlaces().subscribe((res: any) => {
+  //     this.places = res
+  //     for(const place of this.places) {
+  //       place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
+  //     }
+  //     this.places.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
       // console.log(this.places[0].distance);
       // for(const place of this.places[0].data) {
       //   place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
       // }
       // this.places[0].data.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
-    })
-  }
+  //   })
+  // }
 
   getCurrentCoords() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -70,7 +82,15 @@ export class PlacesListComponent implements OnInit {
   }
 
   
-}
+    getAllPlaces(): void {
+      this.placesService.getAllPlaces().subscribe((res: Places) => {
+        this.places.push(res);
+        // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
+        console.log(this.places)
+      })
+    }
+  }
+
 
 
 

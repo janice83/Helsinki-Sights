@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivitiesService } from '../activities.service';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
+import { Activities } from '../activity';
 
 @Component({
   selector: 'app-activities',
@@ -10,7 +11,7 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 export class ActivitiesComponent implements OnInit {
   activities: any = [];
   faMinus = faMinus;
-  
+  // activities: Activities[]= [];
 
   constructor(public activitiesService: ActivitiesService) { }
 
@@ -20,10 +21,18 @@ export class ActivitiesComponent implements OnInit {
 
   getAllActivities(): void {
     this.activitiesService.getAllActivities().subscribe((res: any) => {
-      this.activities = res;
+      this.activities = res
       console.log(this.activities);
     });
   }
+
+  // Get activities from Open Api
+  // getAllActivities(): void {
+  //   this.activitiesService.getAllActivities().subscribe((res: Activities) => {
+  //     this.activities.push(res);
+  //     console.log(this.activities);
+  //   });
+  // } 
 
   hasProp(o:any, name:any) {
     return o.hasOwnProperty(name);

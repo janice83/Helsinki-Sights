@@ -30,11 +30,11 @@
                   class="mb-0"
                   *ngIf="hasProp(activity.descriptions, 'fi'); else fiName"
                 >
-                  {{ activity.descriptions.fi.name }}
+                  <h6>{{ activity.descriptions.fi.name }}</h6>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ng-template #fiName
-                >{{ activity.descriptions.en.name }}</ng-template
+                ><h6>{{ activity.descriptions.en.name }}</h6></ng-template
               >
               <a
                 class="mb-0 opacity-75"
@@ -43,7 +43,7 @@
                 onclick="window.open(this.href,'_blank');"
                 rel="noopener noreferrer"
               >
-                Linkki kotisivulle
+                Linkki järjestäjän kotisivulle
               </a>
               <p></p>
               <p *ngIf="hasProp(activity.descriptions, 'fi'); else fi">
@@ -117,7 +117,7 @@
                 onclick="window.open(this.href,'_blank');"
                 rel="noopener noreferrer"
               >
-                {{ activity.storeUrl }}
+                Linkki kauppaan
               </a>
               <hr />
             </mat-expansion-panel>

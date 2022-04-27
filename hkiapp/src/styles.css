@@ -21,7 +21,9 @@ main {
     /* margin-bottom: 7.5rem; */
 }
 
-h1 { font-size: 5rem;}
+h1 { font-size: 5rem; }
+
+h6 { font-size: 0.8rem; }
 
 p {
     font-family: 'Courier New', Courier, monospace;
@@ -38,6 +40,9 @@ a:hover {
     font-weight: bold;
 }
 
+.mat-expansion-panel-header-title {
+    margin: 1rem 0 1rem 0;
+}
 
 @media only screen and (max-width: 600px) {
     body {

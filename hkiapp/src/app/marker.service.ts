@@ -24,9 +24,9 @@ export class MarkerService {
     return this.http.get(this.apiUrl + '/v1/events');
   }
 
-  // apiActivitiesMarkers() {
-  //   return this.http.get(this.apiUrl + '/v1/activities');
-  // }
+  apiActivitiesMarkers() {
+    return this.http.get(this.apiUrl + '/v1/activities');
+  }
 
 
   // Creates and add markers for places from open Api

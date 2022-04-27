@@ -32,7 +32,7 @@ export class ActivitiesComponent implements OnInit {
   //     this.activities.push(res);
   //     console.log(this.activities);
   //   });
-  // }
+  // } 
 
   hasProp(o:any, name:any) {
     return o.hasOwnProperty(name);

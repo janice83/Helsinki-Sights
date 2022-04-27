@@ -23,7 +23,7 @@
         >
           <cdk-virtual-scroll-viewport itemSize="50" class="content">
             <mat-accordion>
-              <mat-expansion-panel class="list-item" *cdkVirtualFor="let event of events[0].data | sortDate : 'event.event_dates.starting_day';">
+              <mat-expansion-panel class="list-item" *cdkVirtualFor="let event of events[0]?.data | sortDate : 'event.event_dates.starting_day';">
                 
                   <mat-expansion-panel-header>
                     <mat-panel-title>

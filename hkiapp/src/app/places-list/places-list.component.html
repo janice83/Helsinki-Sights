@@ -21,7 +21,7 @@
       >
         <cdk-virtual-scroll-viewport itemSize="50" class="content">
           <mat-accordion>
-            <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places[0].data">
+            <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places[0]?.data">
               <!-- Visible header of expasion panel -->
                 <mat-expansion-panel-header>
                   <mat-panel-title>

@@ -6,6 +6,7 @@ export interface Places {
 
 
 export interface Place {
+    distance: number;
     id: string;
     name: Name;
     sourceType: SourceType;
@@ -29,6 +30,7 @@ export interface SourceType {
 }
 
 export interface Lat {
+
 }
 
 export interface Lon {
@@ -42,8 +44,8 @@ export interface Address {
 }
 
 export interface Location {
-    lat: Lat;
-    lon: Lon;
+    lat: number;
+    lon: number;
     address: Address;
 }
 

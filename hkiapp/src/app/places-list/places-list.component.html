@@ -26,7 +26,7 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title id="distance">
                     {{place.name.fi}} 
-                    {{ calculateDistance(currentCoords, [place.location.lat, place.location.lon]) }} 
+                    {{ calculateDistance(currentCoords, [place.location.lat, place.location.lon]).toFixed(2) }} km
                     <!-- {{ calculateDistance(place.location.lat, place.location.lon) }} -->
                   </mat-panel-title>
                 </mat-expansion-panel-header>

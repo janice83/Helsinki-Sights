@@ -45,7 +45,7 @@
                 <p>Alkaa: {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} </p>
                 <p>Loppuu: {{ event.event_dates.ending_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.ending_day | date: 'HH:mm'}} </p>
 
-                <p class="mb-0">{{ event.description.body }}</p>
+                <!-- <p class="mb-0">{{ event.description.body }}</p> -->
                 
                 <p></p>
                 <p class="mb-0">Osoite: {{ event.location.address.street_address }}</p>

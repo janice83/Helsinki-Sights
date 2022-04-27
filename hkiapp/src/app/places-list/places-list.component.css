@@ -36,6 +36,11 @@
     padding: 2rem;
 }
 
+.km {
+    float: right;
+    /* display: inline; */
+}
+
 /* .link-info {
     color: darkturquoise;
     text-decoration: none;

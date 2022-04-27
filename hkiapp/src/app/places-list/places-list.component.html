@@ -24,8 +24,10 @@
             <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places">
               <!-- Visible header of expasion panel -->
                 <mat-expansion-panel-header>
-                  <mat-panel-title>
+                  <mat-panel-title id="distance">
                     {{place.name.fi}} 
+                    {{ calculateDistance(currentCoords, [place.location.lat, place.location.lon]) }} 
+                    <!-- {{ calculateDistance(place.location.lat, place.location.lon) }} -->
                   </mat-panel-title>
                 </mat-expansion-panel-header>
               
@@ -55,7 +57,7 @@
                 La: {{ place.opening_hours.hours[5].opens }}  - {{ place.opening_hours.hours[5].closes }}<br>
                 Su: {{ place.opening_hours.hours[6].opens }}  - {{ place.opening_hours.hours[6].closes }}</p>
                 <ng-template #noInfo><p>Aukioloaika: Ei tietoja</p></ng-template>
-                <img src="https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-10/14657520_1627162420917017_2082522418259513419_n.jpg?h=1555b8b2&itok=hLcepjKl" alt="">
+                <!-- <img src="https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-10/14657520_1627162420917017_2082522418259513419_n.jpg?h=1555b8b2&itok=hLcepjKl" alt=""> -->
               </div>
               <p>Tagit: </p>
               <div class="tags" >

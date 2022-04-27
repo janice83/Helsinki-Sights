@@ -21,12 +21,15 @@ export class PlacesListComponent implements OnInit {
   getAllPlaces(): void {
     this.placesService.getAllPlaces().subscribe((res: any) => {
       this.places = res
-      // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
-    //   for(let place of this.places) {
-    //     place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
-    //   }
-    //   let 
-    //   console.log(this.places)
+      for(const place of this.places) {
+        place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
+      }
+      this.places.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
+      // console.log(this.places[0].distance);
+      // for(const place of this.places[0].data) {
+      //   place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
+      // }
+      // this.places[0].data.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
     })
   }
 
@@ -53,12 +56,12 @@ export class PlacesListComponent implements OnInit {
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
     var d = R * c;
     // return d;
-    if(d >= 1) {
-      return d.toFixed(2) + " km";
-    } else {
-      var m = d*1000;
-      return Math.round(m) + " m";
-    }
+    // if(d >= 1) {
+    //   return d.toFixed(2) + " km";
+    // } else {
+    //   var m = d*1000;
+    //   return Math.round(m) + " m";
+    // }
     return d.toFixed(2);
   }
 

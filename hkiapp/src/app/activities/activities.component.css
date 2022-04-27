@@ -12,10 +12,10 @@
   border-radius: 7px;
   background-color: rgba(0, 0, 0, 0.728);
   color: white;
-  margin: 1rem;
+  margin: 0;
   min-height: 100%;
   height: 700px;
-  width: 115%;
+  width: 100%;
 }
 
 .list-page-content {
@@ -60,7 +60,7 @@
   margin: 0 5px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1023px) {
   .list-page >* {
       flex-basis: 100%;
   }
@@ -70,10 +70,22 @@
   }
 
   .content {
-      width: 150vw;
+      width: 80vw;
+      height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .list-page >* {
+      flex-basis: 100%;
   }
 
-  p {
-    font-size: 1rem;
+  .list-page-content {
+      padding: 1rem;
+  }
+
+  .content {
+      width: 90vw;
+      height: 90vh;
   }
 }

@@ -25,7 +25,7 @@ export class MarkerService {
   }
 
   apiActivitiesMarkers() {
-    return this.http.get(this.apiUrl + '/v1/activities');
+    return this.http.get(this.apiUrl + '/v2/activities');
   }
 
 
@@ -120,7 +120,7 @@ export class MarkerService {
    // Creates and add markers for activities from open Api
   makeActivitiesMarkers(map: L.Map): void {
     this.apiActivitiesMarkers().subscribe((res:any) => {
-      for (const p of res.data){
+      for (const p of res.rows){
         if(p.address.location !== null) {
           const lat = p.address.location.lat;
         const lon = p.address.location.long;

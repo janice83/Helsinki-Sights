@@ -63,6 +63,7 @@ export interface Activity {
     postalCode: string;
     locality: string;
     neighbourhood: string;
+    location: Location
   }
   export interface PriceEUR {
     from: FromOrTo;
@@ -72,7 +73,10 @@ export interface Activity {
   export interface FromOrTo {
   }
   
-
+export interface Location{
+    lat: number;
+    long: number;
+}
 export interface Count {
    
 }

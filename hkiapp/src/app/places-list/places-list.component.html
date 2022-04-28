@@ -3,6 +3,13 @@
   <section class="list-page">
     <article>
       <div class="col col-lg-2">
+        <mat-form-field appearance="fill">
+          <mat-label>Suodata</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let tag of places[0]?.tags | keyvalue" [value]="tag.value">{{tag.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <input placeholder="Search" type="search" id="input-field" />
         <select class="sort">
           <option value="search" selected disabled hidden>Search by</option>

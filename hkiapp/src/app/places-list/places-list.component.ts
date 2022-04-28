@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { Places } from '../place';
+import { Places, Tag, Tags } from '../place';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-places-list',
@@ -9,10 +10,12 @@ import { Places } from '../place';
   styleUrls: ['./places-list.component.css']
 })
 export class PlacesListComponent implements OnInit {
- 
+  
   currentCoords: number[] = [];
   // places: any = []
   places: Places[] = [];
+  placesTags: any = [];
+  name = "";
 
   constructor(public placesService: PlacesService) { }
 
@@ -67,10 +70,10 @@ export class PlacesListComponent implements OnInit {
         for(const place of this.places[0].data) {
           place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
         }
-        console.log(this.places[0].data[0].distance);
         this.places[0].data.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
       })
     }
+
   }
 
 

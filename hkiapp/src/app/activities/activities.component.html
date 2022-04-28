@@ -23,7 +23,7 @@
           <mat-accordion>
             <mat-expansion-panel
               class="list-item"
-              *cdkVirtualFor="let activity of activities; let i = index"
+              *cdkVirtualFor="let activity of activities[0]?.rows; let i = index"
             >
               <mat-expansion-panel-header>
                 <mat-panel-title
@@ -117,7 +117,7 @@
                 onclick="window.open(this.href,'_blank');"
                 rel="noopener noreferrer"
               >
-                {{ activity.storeUrl }}
+                Linkki kotisivun kauppaan
               </a>
               <hr />
             </mat-expansion-panel>

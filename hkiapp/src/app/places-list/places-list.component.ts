@@ -9,6 +9,7 @@ import { Places } from '../place';
   styleUrls: ['./places-list.component.css']
 })
 export class PlacesListComponent implements OnInit {
+  term='';
  
   currentCoords: number[] = [];
   // places: any = []

@@ -25,6 +25,7 @@ import { SortDatePipe } from './sort-date.pipe';
 import { ActivitiesComponent } from './activities/activities.component';
 import { ActivitiesMapComponent } from './activities-map/activities-map.component';
 import { TopnavComponent } from './topnav/topnav.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { TopnavComponent } from './topnav/topnav.component';
     BrowserAnimationsModule,
     ScrollingModule,
     CdkScrollableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    Ng2SearchPipeModule
   ],
   providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]

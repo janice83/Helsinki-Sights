@@ -10,7 +10,7 @@ import { PopupService } from './popup.service';
 export class MarkerService {
   // places: string = '/assets/data/places.json';
   // events: string = 'assets/data/events.json';
-  activities:string = '/assets/data/activities.json';
+  // activities:string = '/assets/data/activities.json';
   private apiUrl = 'http://localhost:8080';
 
 
@@ -25,7 +25,7 @@ export class MarkerService {
   }
 
   apiActivitiesMarkers() {
-    return this.http.get(this.apiUrl + '/v1/activities');
+    return this.http.get(this.apiUrl + '/v2/activities');
   }
 
 
@@ -101,26 +101,9 @@ export class MarkerService {
   }
   
   // Create and place markers for activities on the map
-  makeActivitiesMarkers(map: L.Map): void {
-    this.http.get(this.activities).subscribe((res:any) => {
-      for (const p of res){
-        if(p.address.location !== null) {
-          const lat = p.address.location.lat;
-        const lon = p.address.location.long;
-          const marker = L.marker([lat, lon]);
-          marker.bindPopup(this.popupService.makeActivitiesPopup(p));
-          marker.addTo(map);
-        }else {
-          continue;
-        }
-      }
-    });
-  }
-
-   // Creates and add markers for activities from open Api
   // makeActivitiesMarkers(map: L.Map): void {
-  //   this.apiActivitiesMarkers().subscribe((res:any) => {
-  //     for (const p of res.data){
+  //   this.http.get(this.activities).subscribe((res:any) => {
+  //     for (const p of res){
   //       if(p.address.location !== null) {
   //         const lat = p.address.location.lat;
   //       const lon = p.address.location.long;
@@ -133,5 +116,22 @@ export class MarkerService {
   //     }
   //   });
   // }
+
+   // Creates and add markers for activities from open Api
+  makeActivitiesMarkers(map: L.Map): void {
+    this.apiActivitiesMarkers().subscribe((res:any) => {
+      for (const p of res.rows){
+        if(p.address.location !== null) {
+          const lat = p.address.location.lat;
+        const lon = p.address.location.long;
+          const marker = L.marker([lat, lon]);
+          marker.bindPopup(this.popupService.makeActivitiesPopup(p));
+          marker.addTo(map);
+        }else {
+          continue;
+        }
+      }
+    });
+  }
   
 }

@@ -9,9 +9,9 @@ import { Activities } from '../activity';
   styleUrls: ['./activities.component.css']
 })
 export class ActivitiesComponent implements OnInit {
-  activities: any = [];
+  // activities: any = [];
   faMinus = faMinus;
-  // activities: Activities[]= [];
+  activities: Activities[]= [];
 
   constructor(public activitiesService: ActivitiesService) { }
 
@@ -19,20 +19,20 @@ export class ActivitiesComponent implements OnInit {
     this.getAllActivities();
   }
 
-  getAllActivities(): void {
-    this.activitiesService.getAllActivities().subscribe((res: any) => {
-      this.activities = res
-      console.log(this.activities);
-    });
-  }
-
-  // Get activities from Open Api
   // getAllActivities(): void {
-  //   this.activitiesService.getAllActivities().subscribe((res: Activities) => {
-  //     this.activities.push(res);
+  //   this.activitiesService.getAllActivities().subscribe((res: any) => {
+  //     this.activities = res
   //     console.log(this.activities);
   //   });
-  // } 
+  // }
+
+  // Get activities from Open Api
+  getAllActivities(): void {
+    this.activitiesService.getAllActivities().subscribe((res: Activities) => {
+      this.activities.push(res);
+      console.log(this.activities);
+    });
+  } 
 
   hasProp(o:any, name:any) {
     return o.hasOwnProperty(name);

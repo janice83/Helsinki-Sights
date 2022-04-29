@@ -10,19 +10,19 @@ export class ActivitiesService {
 
   constructor(private http: HttpClient) { }
 
-  getAllActivities(): any {
-    const activities = this.http.get('assets/data/activities.json');
-    return activities;
-  }
-
-   // Get data from Api
-  // getAllActivities(): Observable<any> {
-  //   const activities = this.http.get(this.apiUrl + '/v2/activities');
+  // getAllActivities(): any {
+  //   const activities = this.http.get('assets/data/activities.json');
   //   return activities;
   // }
 
-   // Markers from Api
-  //  apiActivitiesMarkers() {
-  //   return this.http.get(this.apiUrl + '/v2/activities');
-  // }
+   // Get data from Api
+  getAllActivities(): Observable<any> {
+    const activities = this.http.get(this.apiUrl + '/v2/activities');
+    return activities;
+  }
+
+  //  Markers from Api
+   apiActivitiesMarkers() {
+    return this.http.get(this.apiUrl + '/v2/activities');
+  }
 }

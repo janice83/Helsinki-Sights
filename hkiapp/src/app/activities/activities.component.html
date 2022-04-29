@@ -23,7 +23,7 @@
           <mat-accordion>
             <mat-expansion-panel
               class="list-item"
-              *cdkVirtualFor="let activity of activities; let i = index"
+              *cdkVirtualFor="let activity of activities[0]?.rows; let i = index"
             >
               <mat-expansion-panel-header>
                 <mat-panel-title
@@ -119,6 +119,7 @@
               >
                 Linkki kauppaan
               </a>
+              <!-- <p>Taggit: {{ activity.tags}}</p> -->
               <hr />
             </mat-expansion-panel>
           </mat-accordion>

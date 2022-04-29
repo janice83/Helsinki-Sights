@@ -3,7 +3,7 @@
   <section class="list-page">
     <article>
       <div class="col col-lg-2">
-        <input placeholder="Search" type="search" id="input-field" />
+        <input placeholder="Search" type="search" id="input-field" [(ngModel)]="term" />
         <select class="sort">
           <option value="search" selected disabled hidden>Search by</option>
           <option value="age"></option>
@@ -21,7 +21,7 @@
       >
         <cdk-virtual-scroll-viewport itemSize="50" class="content">
           <mat-accordion>
-            <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places[0]?.data">
+            <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places[0]?.data | filter:term">
               <!-- Visible header of expasion panel -->
                 <mat-expansion-panel-header>
                   <mat-panel-title id="distance">

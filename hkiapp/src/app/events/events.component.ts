@@ -12,6 +12,7 @@ import { Events } from '../event';
 export class EventsComponent implements OnInit {
   // events: any = []
   events: Events[] = [];
+  term='';
 
   constructor(public eventsService: EventsService) { }
 

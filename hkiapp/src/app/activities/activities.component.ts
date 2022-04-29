@@ -12,6 +12,8 @@ export class ActivitiesComponent implements OnInit {
   // activities: any = [];
   faMinus = faMinus;
   activities: Activities[]= [];
+  // activities: Activities[]= [];
+  term='';
 
   constructor(public activitiesService: ActivitiesService) { }
 

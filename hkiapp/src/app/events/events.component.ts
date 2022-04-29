@@ -33,6 +33,7 @@ export class EventsComponent implements OnInit {
     this.eventsService.getAllEvents().subscribe((res: Events) => {
       this.events.push(res);
       // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
+      
       console.log(this.events)
     })
   }

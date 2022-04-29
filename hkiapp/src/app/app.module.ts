@@ -26,6 +26,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { ActivitiesMapComponent } from './activities-map/activities-map.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { WeatherComponent } from './weather/weather.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { WeatherComponent } from './weather/weather.component';
     BrowserAnimationsModule,
     ScrollingModule,
     CdkScrollableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    Ng2SearchPipeModule
   ],
   providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]

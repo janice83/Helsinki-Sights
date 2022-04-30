@@ -93,14 +93,17 @@ export class MarkerService {
    // Creates and add markers for events from open Api
   makeEventsMarkers(map: L.Map): void {
     this.apiEventMarkers().subscribe((res: any) => {
+      const cluster = L.markerClusterGroup();
       for(const p of res.data) {
         const lon = p.location.lon;
         const lat = p.location.lat;
         const marker = L.marker([lat, lon]);
 
         marker.bindPopup(this.popupService.makeEventPopup(p));
-        marker.addTo(map);
+        cluster.addLayer(marker);
+        // marker.addTo(map);
       }
+      map.addLayer(cluster)
     })
   }
   
@@ -124,16 +127,19 @@ export class MarkerService {
    // Creates and add markers for activities from open Api
   makeActivitiesMarkers(map: L.Map): void {
     this.apiActivitiesMarkers().subscribe((res:any) => {
+      const cluster = L.markerClusterGroup();
       for (const p of res.rows){
         if(p.address.location !== null) {
           const lat = p.address.location.lat;
         const lon = p.address.location.long;
           const marker = L.marker([lat, lon]);
           marker.bindPopup(this.popupService.makeActivitiesPopup(p));
-          marker.addTo(map);
+          cluster.addLayer(marker)
+          // marker.addTo(map);
         }else {
           continue;
         }
+        map.addLayer(cluster)
       }
     });
   }

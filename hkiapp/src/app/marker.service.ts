@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import { PopupService } from './popup.service';
+import 'leaflet.markercluster'
 
 
 @Injectable({
@@ -32,14 +33,17 @@ export class MarkerService {
   // Creates and add markers for places from open Api
   makePlacesMarkers(map: L.Map): void {
     this.apiPlaceMarkers().subscribe((res: any) => {
+      const cluster = L.markerClusterGroup();
       for(const p of res.data) {
         const lon = p.location.lon;
         const lat = p.location.lat;
         const marker = L.marker([lat, lon]);
 
         marker.bindPopup(this.popupService.makePlacePopup(p));
-        marker.addTo(map);
+        cluster.addLayer(marker)
+        // marker.addTo(map);
       }
+      map.addLayer(cluster);
     })
   } 
 

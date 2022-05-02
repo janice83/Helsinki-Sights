@@ -11,12 +11,12 @@
             <mat-option *ngFor="let tag of places[0]?.tags | keyvalue" [value]="tag.value">{{tag.value}}</mat-option>
           </mat-select>
         </mat-form-field>
-        <input placeholder="Search" type="search" id="input-field" />
+        <!-- <input placeholder="Search" type="search" id="input-field" />
         <select class="sort">
           <option value="search" selected disabled hidden>Search by</option>
           <option value="age"></option>
-          <option value="name"></option>
-        </select>
+          <option value="name"></option> -->
+        <!-- </select> -->
       </div>
       <app-map></app-map>
     </article>
@@ -33,8 +33,11 @@
               <!-- Visible header of expasion panel -->
                 <mat-expansion-panel-header>
                   <mat-panel-title id="distance">
+
                     <h6>
-                      {{place.name.fi}}
+                      
+                      
+                      {{place.name.fi}} <br>  
                       {{ calculateDistance(currentCoords, [place.location.lat, place.location.lon]).toFixed(2) }} km
                     </h6>
                     <!-- {{ calculateDistance(place.location.lat, place.location.lon) }} -->

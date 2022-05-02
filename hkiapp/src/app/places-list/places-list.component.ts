@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { Places } from '../place';
+import { Places, Tag, Tags } from '../place';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-places-list',
@@ -14,6 +15,10 @@ export class PlacesListComponent implements OnInit {
   currentCoords: number[] = [];
   // places: any = []
   places: Places[] = [];
+  placesTags: any = [];
+  name = "";
+  selected = "";
+  tag = "";
 
   constructor(public placesService: PlacesService) { }
 
@@ -62,17 +67,19 @@ export class PlacesListComponent implements OnInit {
   
     getAllPlaces(): void {
       this.placesService.getAllPlaces().subscribe((res: Places) => {
+        // this.apiResponse.push(res);
         this.places.push(res);
-        // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
+        // this.apiResponse.push(res);
+              // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
 
         for(const place of this.places[0].data) {
           place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
         }
-        console.log(this.places[0].data[0].distance);
         this.places[0].data.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
       })
     }
-  }
+
+}
 
 
 

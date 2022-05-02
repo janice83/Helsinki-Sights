@@ -5,6 +5,7 @@ export interface Events {
 }
 
 export interface Event {
+    distance: number;
     id: string;
     name: Name;
     sourceType: SourceType;
@@ -13,7 +14,7 @@ export interface Event {
     location: Location;
     description: Description;
     tags: Tag[];
-    eventDates: EventDates;
+    event_dates: EventDates;
 }
 
 export interface Name {
@@ -40,8 +41,8 @@ export interface Address {
 }
 
 export interface Location {
-    lat: Lat;
-    lon: Lon;
+    lat: number;
+    lon: number;
     address: Address;
 }
 
@@ -72,8 +73,8 @@ export interface AdditionalDescription {
 }
 
 export interface EventDates {
-    startingDay: Date;
-    endingDay: Date;
+    starting_day: Date;
+    ending_day: Date;
     additionalDescription: AdditionalDescription[];
 }
 

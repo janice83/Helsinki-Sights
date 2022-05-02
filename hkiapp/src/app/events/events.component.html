@@ -4,6 +4,14 @@
     <section class="list-page">
       <article>
         <div class="col col-lg-2">
+          <mat-form-field class="filter" appearance="fill">
+            <mat-label class="filter">Suodata</mat-label>
+            <mat-select [(ngModel)]="tag" [(value)]="selected">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let tag of events[0]?.tags | keyvalue" [value]="tag.value">{{tag.value}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
           <input placeholder="Search" type="search" id="input-field" [(ngModel)]="term" />
           <select class="sort">
             <option value="search" selected disabled hidden>Search by</option>
@@ -23,11 +31,11 @@
         >
           <cdk-virtual-scroll-viewport itemSize="50" class="content">
             <mat-accordion>
-              <mat-expansion-panel class="list-item" *cdkVirtualFor="let event of events[0]?.data | sortDate : 'event.event_dates.starting_day' | filter:term;">
+              <mat-expansion-panel class="list-item" *cdkVirtualFor="let event of events[0]?.data | filter:tag | filter:term;">
                 
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      <h6>{{event.name.fi}} - {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}}</h6>
+                      <h6>{{event.name.fi}} - {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} <br>{{ calculateDistance(currentCoords, [event.location.lat, event.location.lon]).toFixed(2) }} km</h6>
                     </mat-panel-title>
                   </mat-expansion-panel-header>
                 
@@ -55,6 +63,10 @@
                   <img src="{{image.url}}" alt="">
                   <p>&copy;{{ image.copyright_holder }} {{ image.license_type.name }}</p>
                 </figure>
+                <p>Tagit: </p>
+                <div class="tags" >
+                  <p *ngFor="let tag of event.tags">{{ tag.name | uppercase}}</p>
+                </div>
                 <hr />
               </mat-expansion-panel>
             </mat-accordion>

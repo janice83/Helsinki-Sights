@@ -26,6 +26,8 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { ActivitiesMapComponent } from './activities-map/activities-map.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { WeatherComponent } from './weather/weather.component';
+import {MatSelectModule} from '@angular/material/select';
+import { FilterTagPipe } from './filter-tag.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
@@ -44,7 +46,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ActivitiesComponent,
     ActivitiesMapComponent,
     TopnavComponent,
-    WeatherComponent
+    WeatherComponent,
+    FilterTagPipe
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ScrollingModule,
     CdkScrollableModule,
     MatExpansionModule,
+    MatSelectModule,
     Ng2SearchPipeModule
   ],
   providers: [MarkerService, PopupService],

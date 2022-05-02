@@ -26,6 +26,7 @@ export class PlacesService {
   apiPlaceMarkers() {
     return this.http.get(this.apiUrl + '/v1/places');
   }
+
 }
 
 

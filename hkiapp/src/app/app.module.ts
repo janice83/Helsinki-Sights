@@ -27,6 +27,7 @@ import { ActivitiesMapComponent } from './activities-map/activities-map.componen
 import { TopnavComponent } from './topnav/topnav.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FilterTagPipe } from './filter-tag.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { FilterTagPipe } from './filter-tag.pipe';
     ScrollingModule,
     CdkScrollableModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    Ng2SearchPipeModule
   ],
   providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]

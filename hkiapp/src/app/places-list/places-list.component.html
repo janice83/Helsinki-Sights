@@ -6,9 +6,8 @@
         <mat-form-field class="filter" appearance="fill">
           <mat-label class="filter">Suodata</mat-label>
           <mat-select [(ngModel)]="tag" [(value)]="selected">
-            <!-- (selectionChange)="onChange($event)" -->
-            <!-- <mat-option>None</mat-option> -->
-            <mat-option *ngFor="let tag of places[0]?.tags | keyvalue" value="tag.value">{{tag.value}}</mat-option>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let tag of places[0]?.tags | keyvalue" [value]="tag.value">{{tag.value}}</mat-option>
           </mat-select>
         </mat-form-field>
         <input placeholder="Search" type="search" id="input-field" />

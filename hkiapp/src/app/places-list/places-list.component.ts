@@ -3,6 +3,7 @@ import { PlacesService } from '../places.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Places, Tag, Tags } from '../place';
 import {MatSelectModule} from '@angular/material/select';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-places-list',
@@ -16,7 +17,10 @@ export class PlacesListComponent implements OnInit {
   places: Places[] = [];
   placesTags: any = [];
   name = "";
-  apiResponse: any = [];
+  // apiResponse: any = [];
+  filteredData: any =[];
+  selected = "";
+  tag = "";
 
   constructor(public placesService: PlacesService) { }
 
@@ -66,7 +70,8 @@ export class PlacesListComponent implements OnInit {
     getAllPlaces(): void {
       this.placesService.getAllPlaces().subscribe((res: Places) => {
         this.places.push(res);
-        this.apiResponse = res;        // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
+        // this.apiResponse.push(res);
+              // this.places.sort((a: { age: number; }, b: { age: number; }) => (a.age < b.age) ? 1 : (a.age === b.age) ? ((a.age < b.age) ? 1 : -1) : -1 );
 
         for(const place of this.places[0].data) {
           place.distance = this.calculateDistance(this.currentCoords, [place.location.lat, place.location.lon]);
@@ -80,7 +85,16 @@ export class PlacesListComponent implements OnInit {
     }
 
     onChange($event: any) {
+      console.log($event.value);
+      for(const place of this.places[0].data) {
 
+        for(let tag of place.tags) {
+          if(tag.name.toLowerCase() == $event.value.toLowerCase()) {
+            this.filteredData.push(place);
+          }
+        }
+      }
+      this.places = this.filteredData;
     }
 
   }

@@ -26,6 +26,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { ActivitiesMapComponent } from './activities-map/activities-map.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import {MatSelectModule} from '@angular/material/select';
+import { FilterTagPipe } from './filter-tag.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatSelectModule} from '@angular/material/select';
     SortDatePipe,
     ActivitiesComponent,
     ActivitiesMapComponent,
-    TopnavComponent
+    TopnavComponent,
+    FilterTagPipe
   ],
   imports: [
     BrowserModule,

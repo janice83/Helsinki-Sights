@@ -57,6 +57,13 @@
               <p>
                 {{ activity.description.body | stripHtml }}
               </p>
+              <p *ngIf="activity.where_when_duration.where_and_when == null; else whereWhenLocation">
+                Missä ja milloin? Ei tietoja
+              </p>
+              <ng-template #whereWhenLocation>
+                <p>Missä ja milloin? <br> {{ activity.where_when_duration.where_and_when }}</p>
+              </ng-template>
+              
               <p>
                 Toiminnan kesto: {{ activity.where_when_duration.duration }}
               </p>

@@ -10,6 +10,7 @@
           id="input-field"
           [(ngModel)]="term"
         />
+
         <mat-form-field class="filter" appearance="fill">
           <mat-label class="filter">Suodata</mat-label>
           <mat-select [(ngModel)]="tag" [(value)]="selected">
@@ -31,7 +32,7 @@
           <mat-accordion>
             <mat-expansion-panel
               class="list-item"
-              *cdkVirtualFor="let activity of activities[0]?.data | filter:term | filter:tag"
+              *cdkVirtualFor="let activity of activities[0]?.data | orderByName: 'name' | filter:term | filter:tag"
             >
               <mat-expansion-panel-header>
                 <mat-panel-title>

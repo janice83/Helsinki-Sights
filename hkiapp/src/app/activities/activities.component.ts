@@ -17,13 +17,15 @@ export class ActivitiesComponent implements OnInit {
   name = "";
   selected = "";
   tag = "";
+  selectedSort: string = '';
+  activitiesList: any;
 
   constructor(public activitiesService: ActivitiesService) { }
 
   ngOnInit(): void {
     this.getAllActivities();
     this.getCurrentCoords();
-  }
+   }
 
   getCurrentCoords() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -65,12 +67,17 @@ export class ActivitiesComponent implements OnInit {
   getAllActivities(): void {
     this.activitiesService.getAllActivities().subscribe((res: Activities) => {
       this.activities.push(res);
+      this.activitiesList = res;
       console.log(this.activities);
       for(const activity of this.activities[0].data) {
         activity.distance = this.calculateDistance(this.currentCoords, [activity.location.lat, activity.location.lon]);
         console.log(activity.distance)
       }
-      this.activities[0].data.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
+     
+      
+      this.activities[0].data.sort((a: { name: { fi: string; }; },b: { name: { fi: string; };}) => (a.name.fi < b.name.fi ) ? -1 : 1)
+      // this.activitiesList.sort((a: { name: { fi: string; }; },b: { name: { fi: string; }; }) => a.name.fi.localeCompare(b.name.fi))
+      // this.activities[0].data.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
     });
   } 
 

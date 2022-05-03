@@ -23,6 +23,6 @@ export class ActivitiesService {
 
   //  Markers from Api
    apiActivitiesMarkers() {
-    return this.http.get(this.apiUrl + '/v1/activities');
+    return this.http.get(this.apiUrl + '/v2/activities');
   }
 }

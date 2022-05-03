@@ -75,8 +75,7 @@ export class ActivitiesComponent implements OnInit {
       }
      
       
-      this.activities[0].data.sort((a: { name: { fi: string; }; },b: { name: { fi: string; };}) => (a.name.fi < b.name.fi ) ? -1 : 1)
-      // this.activitiesList.sort((a: { name: { fi: string; }; },b: { name: { fi: string; }; }) => a.name.fi.localeCompare(b.name.fi))
+      this.activities[0].data.sort((a: { name: { fi: string; }; },b: { name: { fi: string; };}) => (a.name.fi.trim() < b.name.fi.trim() ) ? -1 : 1)
       // this.activities[0].data.sort((a: { distance: number; }, b: { distance: number; }) => a.distance - b.distance);
     });
   } 

@@ -61,13 +61,25 @@
               </p>
 
               <div class="company-address-info">
-                <p class="address">
+                <p class="address"  *ngIf="activity.location.address.postal_code == null; else PostalCode">
                   Osoite: <br />{{ activity.location.address.street_address }}
-                  <br />
-                  {{ activity.location.address.postal_code }} <br />{{
-                    activity.location.address.locality
-                  }}
-                </p>
+                    <br>
+                    <fa-icon [icon]="faMinus"></fa-icon>
+                    <br>
+                    {{ activity.location.address.locality }}
+                  </p>
+                
+                <ng-template #PostalCode>
+                  <p class="address" >
+                    {{ activity.location.address.street_address }}
+                    <br>
+                    {{ activity.location.address.postal_code }}
+                    <br>
+                    {{ activity.location.address.locality }}
+                  </p>
+                  
+                </ng-template>
+
               </div>
               <div>
                 <figure

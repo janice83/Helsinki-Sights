@@ -35,14 +35,14 @@
   padding: 2rem;
 }
 
-.company-address-info {
+/* .company-address-info {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+} */
 
 .address {
-  margin: 0 2rem 0 0;
+  margin-bottom: 1rem;
 }
 
 .tags {

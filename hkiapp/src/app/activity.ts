@@ -5,6 +5,7 @@ export interface Activities {
 }
 
 export interface Activity {
+  distance: number;
   id: string;
   name: Name;
   sourceType: LatOrLonOrLicenseTypeOrSourceType;
@@ -24,8 +25,8 @@ export interface Name {
 export interface LatOrLonOrLicenseTypeOrSourceType {
 }
 export interface Location {
-  lat: LatOrLonOrLicenseTypeOrSourceType;
-  lon: LatOrLonOrLicenseTypeOrSourceType;
+  lat: number;
+  lon: number;
   address: Address;
 }
 export interface Address {

@@ -4,7 +4,12 @@
   <section class="list-page">
     <article>
       <div class="col col-lg-2">
-        <input placeholder="Search" type="search" id="input-field" [(ngModel)]="term"/>
+        <input
+          placeholder="Search"
+          type="search"
+          id="input-field"
+          [(ngModel)]="term"
+        />
         <select class="sort">
           <option value="search" selected disabled hidden>Search by</option>
           <option value="age"></option>
@@ -23,103 +28,61 @@
           <mat-accordion>
             <mat-expansion-panel
               class="list-item"
-              *cdkVirtualFor="let activity of activities[0]?.rows; let i = index"
+              *cdkVirtualFor="let activity of activities[0]?.data | filter:term"
             >
               <mat-expansion-panel-header>
-                <mat-panel-title
-                  class="mb-0"
-                  *ngIf="hasProp(activity.descriptions, 'fi'); else fiName"
-                >
-                  <h6>{{ activity.descriptions.fi.name }}</h6>
+                <mat-panel-title>
+                  <h6>{{ activity.name.fi }}</h6>
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <ng-template #fiName
-                ><h6>{{ activity.descriptions.en.name }}</h6></ng-template
-              >
-              <a
-                class="mb-0 opacity-75"
-                target="_blank"
-                href="{{ activity.siteUrl }}"
-                onclick="window.open(this.href,'_blank');"
-                rel="noopener noreferrer"
-              >
-                Linkki järjestäjän kotisivulle
-              </a>
-              <p></p>
-              <p *ngIf="hasProp(activity.descriptions, 'fi'); else fi">
-                {{ activity.descriptions.fi.description }}
-              </p>
-              <ng-template #fi><p>
-                {{
-                  activity.descriptions.en.description
-                }}
-              </p></ng-template>
-              <p *ngIf="activity.duration == ''; else activityDuration">
-                Toiminnan kesto:
-                <fa-icon [icon]="faMinus"></fa-icon>
-              </p>
-              <ng-template #activityDuration>
-                <p>
-                  Toiminnan kesto: {{ activity.duration }}
-                  {{ activity.durationType }}
-                </p>
-              </ng-template>
-              <!-- Jatka täältä kuukausien työstämistä! -->
-              <!-- <p>Saatavilla olevat kuukaudet: {{ activity.availableMonths[0] }}</p> -->
               <p>
-                Hinta: {{ activity.priceEUR.from | currency: "EUR" }} -
-                {{ activity.priceEUR.to | currency: "EUR" }}
+                <a
+                  class="mb-0 opacity-75"
+                  target="_blank"
+                  href="{{ activity.info_url }}"
+                  onclick="window.open(this.href,'_blank');"
+                  rel="noopener noreferrer"
+                >
+                  Linkki järjestäjän kotisivulle
+                </a>
               </p>
- 
+              <p></p>
+              <p>
+                {{ activity.description.body }}
+              </p>
+              <p>
+                Toiminnan kesto: {{ activity.where_when_duration.duration }}
+              </p>
+
               <div class="company-address-info">
-                <p>
-                  Yhtiö: <br />
-                  {{ activity.company.name }} <br />
-                  {{ activity.company.businessId }} <br />
-                  {{ activity.company.email }} <br />
-                  {{ activity.company.phone }}
-                </p>
                 <p class="address">
-                  Osoite: <br />{{ activity.address.postalCode }} <br />
-                  {{ activity.address.streetName }} <br />{{
-                    activity.address.city
+                  Osoite: <br />{{ activity.location.address.street_address }}
+                  <br />
+                  {{ activity.location.address.postal_code }} <br />{{
+                    activity.location.address.locality
                   }}
                 </p>
-                <p>
-                  Aukioloajat: <br />
-                  Ma: {{ activity.open.monday.from | slice: 0:5 }} -
-                  {{ activity.open.monday.to | slice: 0:5 }} <br />
-                  Ti: {{ activity.open.tuesday.from | slice: 0:5 }} -
-                  {{ activity.open.tuesday.to | slice: 0:5 }} <br />
-                  Ke: {{ activity.open.wednesday.from | slice: 0:5 }} -
-                  {{ activity.open.wednesday.to | slice: 0:5 }} <br />
-                  To: {{ activity.open.thursday.from | slice: 0:5 }} -
-                  {{ activity.open.thursday.to | slice: 0:5 }} <br />
-                  Pe: {{ activity.open.friday.from | slice: 0:5 }} -
-                  {{ activity.open.friday.to | slice: 0:5 }} <br />
-                  La: {{ activity.open.saturday.from | slice: 0:5 }} -
-                  {{ activity.open.saturday.to | slice: 0:5 }} <br />
-                  Su: {{ activity.open.sunday.from | slice: 0:5 }} -
-                  {{ activity.open.sunday.to | slice: 0:5 }}
-                </p>
-                
               </div>
               <div>
-                <figure class="figure" *ngFor="let image of activity.media">
-                  <img class="figure-img img-fluid rounded photo-layout" src="{{ image.smallUrl }}" alt="{{ image.alt }}" />
-                  <p>&copy;{{ image.copyright }}</p>
+                <figure
+                  class="figure"
+                  *ngFor="let image of activity.description.images"
+                >
+                  <img
+                    class="figure-img img-fluid rounded photo-layout"
+                    src="{{ image.url }}"
+                    width="200"
+                    height="40"
+                    alt=""
+                  />
+                  <p>&copy;{{ image.license_type.name }}</p>
                 </figure>
               </div>
-              <a
-                class="mb-0 opacity-75"
-                target="_blank"
-                href="{{ activity.storeUrl }}"
-                onclick="window.open(this.href,'_blank');"
-                rel="noopener noreferrer"
-              >
-                Linkki kauppaan
-              </a>
-              <!-- <p>Taggit: {{ activity.tags}}</p> -->
+              <p>Tagit: </p>
+              <div class="tags" >
+                <p *ngFor="let tag of activity.tags">{{ tag.name | uppercase}}</p>
+              </div>
+              
               <hr />
             </mat-expansion-panel>
           </mat-accordion>
@@ -129,4 +92,3 @@
   </section>
 </main>
 <app-footer></app-footer>
-

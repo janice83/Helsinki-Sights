@@ -17,12 +17,12 @@ export class ActivitiesService {
 
    // Get data from Api
   getAllActivities(): Observable<any> {
-    const activities = this.http.get(this.apiUrl + '/v2/activities');
+    const activities = this.http.get(this.apiUrl + '/v1/activities');
     return activities;
   }
 
   //  Markers from Api
    apiActivitiesMarkers() {
-    return this.http.get(this.apiUrl + '/v2/activities');
+    return this.http.get(this.apiUrl + '/v1/activities');
   }
 }

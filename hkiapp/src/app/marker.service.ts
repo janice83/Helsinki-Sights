@@ -26,7 +26,7 @@ export class MarkerService {
   }
 
   apiActivitiesMarkers() {
-    return this.http.get(this.apiUrl + '/v2/activities');
+    return this.http.get(this.apiUrl + '/v1/activities');
   }
 
 
@@ -128,10 +128,10 @@ export class MarkerService {
   makeActivitiesMarkers(map: L.Map): void {
     this.apiActivitiesMarkers().subscribe((res:any) => {
       const cluster = L.markerClusterGroup();
-      for (const p of res.rows){
-        if(p.address.location !== null) {
-          const lat = p.address.location.lat;
-        const lon = p.address.location.long;
+      for (const p of res.data){
+        if(p.location !== null) {
+          const lat = p.location.lat;
+        const lon = p.location.lon;
           const marker = L.marker([lat, lon]);
           marker.bindPopup(this.popupService.makeActivitiesPopup(p));
           cluster.addLayer(marker)

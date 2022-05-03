@@ -45,6 +45,14 @@
   margin: 0 2rem 0 0;
 }
 
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tags >* {
+  flex-basis: 20%;
+}
 .mat-expansion-panel-header {
   padding: 0 2rem 0 0.6rem;
 }

@@ -55,7 +55,7 @@
               </p>
               <p></p>
               <p>
-                {{ activity.description.body }}
+                {{ activity.description.body | stripHtml }}
               </p>
               <p>
                 Toiminnan kesto: {{ activity.where_when_duration.duration }}

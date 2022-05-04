@@ -48,20 +48,20 @@ export class PopupService {
 
    // Creates popup for activities
    makeActivitiesPopup(data:any): string {
-    if(data.descriptions.fi == undefined){
+    if(data.name.fi == undefined){
     return `` +
     `<div> 
-    <h6>${data.descriptions.en.name}</h6>
-    <a target="_blank" href="${ data.siteUrl }"> ${ data.siteUrl } </a>
+    <h6>${data.name.en}</h6>
+    <a target="_blank" href="${ data.info_url }"> ${ data.info_url } </a>
     </div>`
   }else {
     return `` +
     `<div> 
-    <h6>${data.descriptions.fi.name}</h6>
-    <a target="_blank" href="${ data.siteUrl }"> ${ data.siteUrl } </a>
-    <p>Osoite:<br> ${ data.address.streetName }
-    <br>${ data.address.postalCode }
-    <br>${ data.address.city }</p>
+    <h6>${data.name.fi}</h6>
+    <a target="_blank" href="${ data.info_url }"> ${ data.info_url } </a>
+    <p>Osoite:<br> ${ data.location.address.street_address }
+    <br>${ data.location.address.postal_code }
+    <br>${ data.location.address.locality }</p>
     </div>`
   }
   }

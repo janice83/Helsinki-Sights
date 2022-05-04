@@ -35,16 +35,24 @@
   padding: 2rem;
 }
 
-.company-address-info {
+/* .company-address-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+
+.address {
+  margin-bottom: 1rem;
+}
+
+.tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-.address {
-  margin: 0 2rem 0 0;
+.tags >* {
+  flex-basis: 20%;
 }
-
 .mat-expansion-panel-header {
   padding: 0 2rem 0 0.6rem;
 }

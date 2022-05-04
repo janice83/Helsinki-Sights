@@ -29,6 +29,8 @@ import { WeatherComponent } from './weather/weather.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FilterTagPipe } from './filter-tag.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderByNamePipe } from './order-by-name.pipe';
+import { StripHtmlPipe } from './strip-html.pipe';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ActivitiesMapComponent,
     TopnavComponent,
     WeatherComponent,
-    FilterTagPipe
+    FilterTagPipe,
+    OrderByNamePipe,
+    StripHtmlPipe
   ],
   imports: [
     BrowserModule,

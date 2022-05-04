@@ -3,9 +3,9 @@
   <section class="list-page">
     <article>
       <div class="col col-lg-2">
-        <input placeholder="Hae" type="search" id="input-field" [(ngModel)]="term" />
+        <input placeholder="Hae hakusanalla" type="search" id="input-field" [(ngModel)]="term" />
         <mat-form-field class="filter" appearance="fill">
-          <mat-label class="filter">Suodata</mat-label>
+          <mat-label class="filter">Rajaa hakuehtoja</mat-label>
           <mat-select [(ngModel)]="tag" [(value)]="selected">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let tag of places[0]?.tags | keyvalue" [value]="tag.value">{{tag.value}}</mat-option>

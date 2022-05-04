@@ -54,28 +54,31 @@ export class EventsComponent implements OnInit {
     return value * (Math.PI / 180);
   }
 
-  // gets all events and sorts them in ascending order according to starting date
-  // getAllEvents(): void {
-  //   this.eventsService.getAllEvents().subscribe((res: any) => {
-  //     this.events = res;
-  //     this.events.sort((x: { event_dates: { starting_day: string | number | Date; }; }, y: { event_dates: { starting_day: string | number | Date; }; }) => +new Date(x.event_dates.starting_day) - +new Date(y.event_dates.starting_day));
-  //     console.log(this.events)
-  //   })
-  // }
-
    // Get places from Open Api
    getAllEvents(): void {
     this.eventsService.getAllEvents().subscribe((res: Events) => {
       this.events.push(res);
+      let today = new Date();
+      console.log(today);
       
+      // calculate and add property 'distance' to event 
       for(const event of this.events[0].data) {
         event.distance = this.calculateDistance(this.currentCoords, [event.location.lat, event.location.lon]);
+        if(event.event_dates.starting_day < today && event.event_dates.ending_day > today) {
+          event.event_dates.starting_day = today;
+        }
       }
-      console.log(this.events[0].data[0].event_dates.starting_day);
+      // sort events by starting date
       this.events[0].data.sort((x: { event_dates: { starting_day: Date; }; }, y: { event_dates: { starting_day: Date; }; }) => +new Date(x.event_dates.starting_day) - +new Date(y.event_dates.starting_day));
-      
-      console.log(this.events)
+
+      for(var i = this.events[0].data.length -1; i >= 0; i--) {
+        if(this.events[0].data[i].event_dates.starting_day == null) {
+          this.events[0].data.push(this.events[0].data.splice(i, 1)[0]);
+        }
+      }
     })
   }
 
 }
+
+

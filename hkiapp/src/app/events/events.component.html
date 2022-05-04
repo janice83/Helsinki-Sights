@@ -35,7 +35,10 @@
                 
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      <h6>{{event.name.fi}} - {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} <br>{{ calculateDistance(currentCoords, [event.location.lat, event.location.lon]).toFixed(2) }} km</h6>
+                      <h6 *ngIf="event.event_dates.starting_day == null ; else kello">{{event.name.fi}} (aloituspäivämäärä ei tiedossa)<br>{{ calculateDistance(currentCoords, [event.location.lat, event.location.lon]).toFixed(2) }} km</h6>
+                      <ng-template #kello>
+                        <h6>{{event.name.fi}}, {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  {{ event.event_dates.starting_day | date: 'HH:mm'}} <br>{{ calculateDistance(currentCoords, [event.location.lat, event.location.lon]).toFixed(2) }} km</h6>
+                      </ng-template>
                     </mat-panel-title>
                   </mat-expansion-panel-header>
                 
@@ -53,7 +56,7 @@
                 <p>Alkaa: {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} </p>
                 <p>Loppuu: {{ event.event_dates.ending_day | date: 'dd/MM/YYYY' }}  , klo. {{ event.event_dates.ending_day | date: 'HH:mm'}} </p>
 
-                <!-- <p class="mb-0">{{ event.description.body }}</p> -->
+                <!-- <p class="mb-0">{{ event.description.body | slice: 1:event.description.body.length - 1}}</p> -->
                 
                 <p></p>
                 <p class="mb-0">Osoite: {{ event.location.address.street_address }}</p>

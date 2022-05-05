@@ -89,5 +89,10 @@
         width: 90vw;
         height: 90vh;
     }
+
+    .event_image >* {
+        height: 5rem;
+        margin: 0.5rem;
+    }
 }
 

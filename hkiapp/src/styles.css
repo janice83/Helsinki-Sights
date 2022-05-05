@@ -107,3 +107,9 @@ input, mat-form-field {
       background-size: cover;
     }
   }
+
+@media only screen and (min-width: 426px) {
+    .mat-form-field-appearance-fill {
+        background-color: rgba(0, 0, 0, 0.715);
+    }
+}

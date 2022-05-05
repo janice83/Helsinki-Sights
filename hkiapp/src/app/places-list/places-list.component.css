@@ -8,9 +8,6 @@
     flex-basis: 45%;
 }
 
-#input-field {
-    margin: 1rem 1rem;
-}
 .sort {
     margin: 0 0 5rem 1rem;
 }
@@ -64,6 +61,11 @@ margin: 0 2rem 0 0;
     padding: 0 2rem 0 0.6rem;
 }
 
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: black;
+}
+
+
 /* SCREEN RULES */
 @media only screen and (max-width: 1023px) {
     .list-page >* {
@@ -92,5 +94,11 @@ margin: 0 2rem 0 0;
     .content {
         width: 90vw;
         height: 90vh;
+    }
+
+    .tags {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }

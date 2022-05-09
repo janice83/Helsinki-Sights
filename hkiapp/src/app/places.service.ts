@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { PlacesListComponent } from './places-list/places-list.component';
 import { HttpClient } from "@angular/common/http";
 import { Observable, Subject } from 'rxjs';
@@ -9,11 +9,10 @@ import { Observable, Subject } from 'rxjs';
 export class PlacesService {
   private apiUrl = 'http://localhost:8080'; 
 
-  // getPlaceCoordinates = new EventEmitter();    
   private subject = new Subject<any>();
 
-
   constructor(private http: HttpClient) { }
+
 
   sendClickEvent(place:any) {
     this.subject.next(place);

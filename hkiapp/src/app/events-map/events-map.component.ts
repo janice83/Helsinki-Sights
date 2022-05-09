@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../marker.service';
+import { EventsService } from '../events.service';
+import { Subscription } from 'rxjs';
 
 // defines the marker
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -25,11 +27,22 @@ L.Marker.prototype.options.icon = iconDefault;
 })
 export class EventsMapComponent implements OnInit {
   private eventsMap: any;
+  subsVar!: Subscription;
 
-  constructor(private markerService: MarkerService) { }
+  constructor(private markerService: MarkerService, private eventsService: EventsService) {
+    this.subsVar = this.eventsService.getClickEvent().subscribe((res) => {
+      this.centerByMarker(res);
+    })
+   }
 
   ngOnInit(): void {
   }
+
+    // centers the map to markes chosen from list
+    centerByMarker(place: any): void {
+      this.eventsMap.setView([place.location.lat, place.location.lon], 18);
+    }
+  
 
   // create leaflet map and add layer to map
   private initMap(): void {

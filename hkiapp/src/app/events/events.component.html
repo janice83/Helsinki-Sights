@@ -52,6 +52,7 @@
                 >
                   Linkki tapahtuman kotisivulle
                 </a>
+                <button (click)="sendCoordinates(event)">Näytä kartalla</button>
                 <p class="mb-0">{{ event.description.intro }}</p>
                 <p></p>
                 <p>Alkaa: {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}, klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} </p>

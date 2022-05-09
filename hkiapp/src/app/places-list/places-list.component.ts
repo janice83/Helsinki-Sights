@@ -20,9 +20,6 @@ export class PlacesListComponent implements OnInit {
   name = "";
   selected = "";
   tag = "";
-  coords!: number[];
-
-  @Output() onEventClick = new EventEmitter<Place>();
 
   constructor(public placesService: PlacesService) { }
 
@@ -31,9 +28,8 @@ export class PlacesListComponent implements OnInit {
     this.getCurrentCoords();
   }
 
+  // send coordinates from list-item
   sendCoordinates(place: any) {
-    console.log("halutaan luoda yhteys");
-    console.log(place.location.lat);
     this.placesService.sendClickEvent(place);
   }
 

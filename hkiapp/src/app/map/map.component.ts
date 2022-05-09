@@ -42,10 +42,8 @@ export class MapComponent implements AfterViewInit {
   ngOnInit(): void {
   }
 
+  // centers the map to markes chosen from list
   centerByMarker(place: any): void {
-    // this.placesService.getPlaceCoordinates();
-    console.log(place.location.lat);
-    console.log("yhteys luotu");
     this.map.setView([place.location.lat, place.location.lon], 18);
   }
 

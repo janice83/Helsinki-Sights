@@ -32,6 +32,7 @@
         >
           <cdk-virtual-scroll-viewport itemSize="50" class="content">
             <mat-accordion>
+              <h3 class="title">{{ title }}</h3>
               <mat-expansion-panel class="list-item" *cdkVirtualFor="let event of events[0]?.data | filter:tag | filter:term;">
                 
                   <mat-expansion-panel-header>

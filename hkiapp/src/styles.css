@@ -56,6 +56,9 @@ input, mat-form-field {
     color: black;
 }
 
+.title {
+    text-align: center;
+  }
 .mat-form-field-appearance-fill {
     background-color: rgba(154, 146, 98, 0.082);
 }

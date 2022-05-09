@@ -10,6 +10,7 @@ import { Events } from '../event';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
+  title = 'Tapahtumat'
   // events: any = []
   events: Events[] = [];
   term='';

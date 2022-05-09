@@ -11,7 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 })
 export class PlacesListComponent implements OnInit {
   term='';
- 
+  title = 'Paikat'
   currentCoords: number[] = [];
   // places: any = []
   places: Places[] = [];

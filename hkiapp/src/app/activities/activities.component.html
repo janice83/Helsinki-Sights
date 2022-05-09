@@ -30,6 +30,7 @@
       >
         <cdk-virtual-scroll-viewport itemSize="50" class="content">
           <mat-accordion>
+            <h3 class="title">{{ title }}</h3>
             <mat-expansion-panel
               class="list-item"
               *cdkVirtualFor="let activity of activities[0]?.data | orderByName: 'name' | filter:term | filter:tag"

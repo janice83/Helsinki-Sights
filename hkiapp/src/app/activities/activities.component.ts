@@ -9,6 +9,7 @@ import { Activities } from '../activity';
   styleUrls: ['./activities.component.css']
 })
 export class ActivitiesComponent implements OnInit {
+  title = 'Aktiviteetit'
   // activities: any = [];
   faMinus = faMinus;
   activities: Activities[]= [];

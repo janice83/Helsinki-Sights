@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { Places, Tag, Tags } from '../place';
+import { Place, Places, Tag, Tags } from '../place';
 import {MatSelectModule} from '@angular/material/select';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-places-list',
@@ -19,12 +20,21 @@ export class PlacesListComponent implements OnInit {
   name = "";
   selected = "";
   tag = "";
+  coords!: number[];
+
+  @Output() onEventClick = new EventEmitter<Place>();
 
   constructor(public placesService: PlacesService) { }
 
   ngOnInit(): void {
     this.getAllPlaces();
     this.getCurrentCoords();
+  }
+
+  sendCoordinates(place: any) {
+    console.log("halutaan luoda yhteys");
+    console.log(place.location.lat);
+    this.placesService.sendClickEvent(place);
   }
 
   getCurrentCoords() {

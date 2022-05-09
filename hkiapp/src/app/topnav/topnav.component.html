@@ -8,20 +8,20 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
 <!--      <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Etusivulle</a>
           </li>
 -->
 <!--   -->          <app-weather class="nav-item, right-margin"></app-weather>
           <li class="nav-item">
-            <a class="nav-link" href="../places-list/">Paikat</a>
+            <a class="nav-link" [routerLink]="['/places-list']"  [routerLinkActive]="['active']">Paikat</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../events/">Tapahtumat</a>
+            <a class="nav-link" [routerLink]="['/events']" [routerLinkActive]="['active']">Tapahtumat</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../activities/">Aktiviteetit</a>
+            <a class="nav-link" [routerLink]="['/activities']" [routerLinkActive]="['active']">Aktiviteetit</a>
           </li>
         </ul>
         <button class="btn btn-outline-success" type="submit">Change language</button>

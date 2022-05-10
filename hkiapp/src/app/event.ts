@@ -76,6 +76,8 @@ export interface EventDates {
     starting_day: Date;
     ending_day: Date;
     additionalDescription: AdditionalDescription[];
+    current_day: Date;
+    jatkuva: boolean;
 }
 
 export interface Meta {

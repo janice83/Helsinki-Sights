@@ -38,9 +38,9 @@ export class EventsMapComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    // centers the map to markes chosen from list
-    centerByMarker(place: any): void {
-      this.eventsMap.setView([place.location.lat, place.location.lon], 18);
+    // centers the map to marker chosen from list
+    centerByMarker(event: any): void {
+      this.eventsMap.setView([event.location.lat, event.location.lon], 17);
     }
   
 

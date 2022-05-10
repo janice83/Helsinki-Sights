@@ -16,12 +16,14 @@ export class EventsComponent implements OnInit {
   currentCoords: number[] = [];
   selected = "";
   tag = "";
+  today!: Date;
 
   constructor(public eventsService: EventsService) { }
 
   ngOnInit(): void {
     this.getAllEvents();
     this.getCurrentCoords();
+    this.today = new Date();
   }
 
   // send coordinates from list-item
@@ -64,15 +66,17 @@ export class EventsComponent implements OnInit {
    getAllEvents(): void {
     this.eventsService.getAllEvents().subscribe((res: Events) => {
       this.events.push(res);
-      let today = new Date();
-      console.log(today);
       
       // calculate and add property 'distance' to event 
       for(const event of this.events[0].data) {
         event.distance = this.calculateDistance(this.currentCoords, [event.location.lat, event.location.lon]);
-        if(event.event_dates.starting_day < today && event.event_dates.ending_day > today) {
-          event.event_dates.starting_day = today;
+        if(new Date(event.event_dates.starting_day) < this.today) {
+          event.event_dates.current_day = this.today;
+          event.event_dates.jatkuva = true;
+        } else {
+          event.event_dates.current_day = event.event_dates.starting_day;
         }
+        
       }
       // sort events by starting date
       this.events[0].data.sort((x: { event_dates: { starting_day: Date; }; }, y: { event_dates: { starting_day: Date; }; }) => +new Date(x.event_dates.starting_day) - +new Date(y.event_dates.starting_day));

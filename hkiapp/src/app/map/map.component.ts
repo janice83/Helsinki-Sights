@@ -44,7 +44,7 @@ export class MapComponent implements AfterViewInit {
 
   // centers the map to markes chosen from list
   centerByMarker(place: any): void {
-    this.map.setView([place.location.lat, place.location.lon], 18);
+    this.map.setView([place.location.lat, place.location.lon], 17);
   }
 
   // create leaflet map and add layer to map

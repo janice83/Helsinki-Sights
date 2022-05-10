@@ -27,6 +27,12 @@ export class ActivitiesComponent implements OnInit {
     this.getCurrentCoords();
    }
 
+  // send coordinates from list-item
+  sendCoordinates(activity: any) {
+    this.activitiesService.sendClickEvent(activity);
+  }
+  
+
   getCurrentCoords() {
     navigator.geolocation.getCurrentPosition((position) => {
       const currentLat = position.coords.latitude;

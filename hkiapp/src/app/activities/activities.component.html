@@ -30,7 +30,9 @@
       >
         <cdk-virtual-scroll-viewport itemSize="50" class="content">
           <mat-accordion>
-            <h3 class="title">{{ title }}</h3>
+            <div [style.top]="inverseOfTranslation" class="title">
+              <h3>{{ title }}</h3>
+            </div>
             <mat-expansion-panel
               class="list-item"
               *cdkVirtualFor="let activity of activities[0]?.data | orderByName: 'name' | filter:term | filter:tag"
@@ -95,13 +97,15 @@
                   class="figure"
                   *ngFor="let image of activity.description.images"
                 >
-                  <img
-                    class="figure-img img-fluid rounded photo-layout"
-                    src="{{ image.url }}"
-                    width="200"
-                    height="40"
-                    alt=""
-                  />
+                  <a href="">
+                    <img
+                      class="figure-img img-fluid rounded photo-layout"
+                      src="{{ image.url }}"
+                      width="200"
+                      height="40"
+                      alt=""
+                    />
+                  </a>
                   <p>&copy;{{ image.license_type.name }}</p>
                 </figure>
               </div>

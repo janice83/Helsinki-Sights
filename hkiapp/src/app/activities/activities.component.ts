@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivitiesService } from '../activities.service';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { Activities } from '../activity';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-activities',
@@ -9,6 +10,9 @@ import { Activities } from '../activity';
   styleUrls: ['./activities.component.css']
 })
 export class ActivitiesComponent implements OnInit {
+  @ViewChild(CdkVirtualScrollViewport, {static:false})
+  public viewPort!: CdkVirtualScrollViewport;
+  
   title = 'Aktiviteetit'
   // activities: any = [];
   faMinus = faMinus;
@@ -85,4 +89,11 @@ export class ActivitiesComponent implements OnInit {
     return o.hasOwnProperty(name);
   }
 
+  public get inverseOfTranslation(): string {
+    if (!this.viewPort || !this.viewPort["_renderedContentOffset"]) {
+      return "-0px";
+    }
+    let offset = this.viewPort["_renderedContentOffset"];
+    return `-${offset}px`;
+  }
 }

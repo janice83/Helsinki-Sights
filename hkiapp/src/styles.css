@@ -58,7 +58,15 @@ input, mat-form-field {
 
 .title {
     text-align: center;
-  }
+    position: sticky; 
+    top: 0;
+    background-color: black; 
+    padding: 7px;
+    /* opacity: 0.5;
+    border: 1px solid #9A9262; */
+    z-index: 1;
+}
+  
 .mat-form-field-appearance-fill {
     background-color: rgba(154, 146, 98, 0.082);
 }

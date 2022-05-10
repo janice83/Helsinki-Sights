@@ -1,6 +1,11 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../marker.service';
+import { PlacesListComponent } from '../places-list/places-list.component';
+import { Place } from '../place';
+import { PlacesService } from '../places.service';
+import { Subscription } from 'rxjs/internal/Subscription';
+
 
 // defines the marker
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -25,10 +30,21 @@ L.Marker.prototype.options.icon = iconDefault;
 })
 export class MapComponent implements AfterViewInit {
   private map: any;
+  // place!: Place;
+  subsVar!: Subscription;  
 
-  constructor(private markerService: MarkerService) { }
+  constructor(private markerService: MarkerService, private placesService: PlacesService) {
+    this.subsVar = this.placesService.getClickEvent().subscribe((res) => {
+      this.centerByMarker(res);
+    })
+   }
 
   ngOnInit(): void {
+  }
+
+  // centers the map to markes chosen from list
+  centerByMarker(place: any): void {
+    this.map.setView([place.location.lat, place.location.lon], 17);
   }
 
   // create leaflet map and add layer to map
@@ -48,5 +64,7 @@ export class MapComponent implements AfterViewInit {
     this.markerService.makeMyLocationMarker(this.map);
     this.markerService.makePlacesMarkers(this.map);
   }
+
+  
 
 }

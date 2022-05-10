@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { Places, Tag, Tags } from '../place';
+import { Place, Places, Tag, Tags } from '../place';
 import {MatSelectModule} from '@angular/material/select';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-places-list',
@@ -28,6 +29,11 @@ export class PlacesListComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPlaces();
     this.getCurrentCoords();
+  }
+
+  // send coordinates from list-item
+  sendCoordinates(place: any) {
+    this.placesService.sendClickEvent(place);
   }
 
   getCurrentCoords() {

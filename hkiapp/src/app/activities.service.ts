@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivitiesService {
   private apiUrl = 'http://localhost:8080'; 
+  private subject = new Subject<any>();
 
   constructor(private http: HttpClient) { }
+
+  sendClickEvent(activity:any) {
+    this.subject.next(activity);
+  }
+
+  getClickEvent() {
+    return this.subject.asObservable();
+  }
 
   // getAllActivities(): any {
   //   const activities = this.http.get('assets/data/activities.json');

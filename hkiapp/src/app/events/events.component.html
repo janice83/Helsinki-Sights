@@ -41,8 +41,12 @@
                     <mat-panel-title>
                       <h6 *ngIf="event.event_dates.starting_day == null ; else kello">{{event.name.fi}} (aloituspäivämäärä ei tiedossa)<br>{{ calculateDistance(currentCoords, [event.location.lat, event.location.lon]).toFixed(2) }} km</h6>
                       <ng-template #kello>
-                        <h6>{{event.name.fi}}, {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }} {{ event.event_dates.starting_day | date: 'HH:mm'}}
+                        <h6 *ngIf="event.event_dates.jatkuva ; else normaali">{{event.name.fi}}, {{ event.event_dates.current_day | date: 'dd/MM/YYYY' }} (jatkuva)
                           <br>{{ calculateDistance(currentCoords, [event.location.lat, event.location.lon]).toFixed(2) }} km</h6>
+                          <ng-template #normaali>
+                            <h6>{{event.name.fi}}, {{ event.event_dates.current_day | date: 'dd/MM/YYYY' }} {{ event.event_dates.current_day | date: 'HH:mm'}}
+                              <br>{{ calculateDistance(currentCoords, [event.location.lat, event.location.lon]).toFixed(2) }} km</h6>
+                          </ng-template>
                       </ng-template>
                     </mat-panel-title>
                   </mat-expansion-panel-header>
@@ -55,6 +59,7 @@
                 >
                   Linkki tapahtuman kotisivulle
                 </a>
+                <button (click)="sendCoordinates(event)">Näytä kartalla</button>
                 <p class="mb-0">{{ event.description.intro }}</p>
                 <p></p>
                 <p>Alkaa: {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}, klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} </p>

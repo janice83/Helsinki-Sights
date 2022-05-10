@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventsService } from '../events.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Events } from '../event';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 
 @Component({
@@ -10,6 +11,9 @@ import { Events } from '../event';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
+  @ViewChild(CdkVirtualScrollViewport, {static:false})
+  public viewPort!: CdkVirtualScrollViewport;
+
   title = 'Tapahtumat'
   // events: any = []
   events: Events[] = [];
@@ -80,6 +84,13 @@ export class EventsComponent implements OnInit {
     })
   }
 
+  public get inverseOfTranslation(): string {
+    if (!this.viewPort || !this.viewPort["_renderedContentOffset"]) {
+      return "-0px";
+    }
+    let offset = this.viewPort["_renderedContentOffset"];
+    return `-${offset}px`;
+  }
 }
 
 

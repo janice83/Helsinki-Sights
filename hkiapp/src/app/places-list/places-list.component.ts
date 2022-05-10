@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Places, Tag, Tags } from '../place';
 import {MatSelectModule} from '@angular/material/select';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-places-list',
@@ -10,6 +11,8 @@ import {MatSelectModule} from '@angular/material/select';
   styleUrls: ['./places-list.component.css']
 })
 export class PlacesListComponent implements OnInit {
+  @ViewChild(CdkVirtualScrollViewport, {static:false})
+  public viewPort!: CdkVirtualScrollViewport;
   term='';
   title = 'Paikat'
   currentCoords: number[] = [];
@@ -79,6 +82,13 @@ export class PlacesListComponent implements OnInit {
       })
     }
 
+    public get inverseOfTranslation(): string {
+      if (!this.viewPort || !this.viewPort["_renderedContentOffset"]) {
+        return "-0px";
+      }
+      let offset = this.viewPort["_renderedContentOffset"];
+      return `-${offset}px`;
+    }
 }
 
 

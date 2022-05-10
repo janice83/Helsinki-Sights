@@ -29,7 +29,9 @@
       >
         <cdk-virtual-scroll-viewport itemSize="50" class="content">
           <mat-accordion>
-            <h3 class="title">{{ title }}</h3>
+            <div [style.top]="inverseOfTranslation" class="title">
+              <h3>{{ title }}</h3>
+            </div>
             <mat-expansion-panel class="list-item" *cdkVirtualFor="let place of places[0]?.data | filter:term | filter:tag">
               <!-- Visible header of expasion panel -->
                 <mat-expansion-panel-header>

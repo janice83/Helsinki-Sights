@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivitiesService } from '../activities.service';
-import { faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Activities } from '../activity';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
@@ -16,6 +16,7 @@ export class ActivitiesComponent implements OnInit {
   title = 'Aktiviteetit'
   // activities: any = [];
   faMinus = faMinus;
+  faMapLocationDot = faMapLocationDot;
   activities: Activities[]= [];
   term='';
   currentCoords: number[] = [];

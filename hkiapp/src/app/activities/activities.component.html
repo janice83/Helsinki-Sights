@@ -55,7 +55,11 @@
                 >
                   Linkki järjestäjän kotisivulle
                 </a>
-                <button (click)="sendCoordinates(activity)">Näytä kartalla</button>
+                <button  class="btn btn-outline-light" (click)="sendCoordinates(activity)" style="font-size: 14px;  border: none;">
+                  <span>
+                  <fa-icon [icon]="faMapLocationDot" style="color: darkturquoise; font-size: 1.4rem;" ></fa-icon>
+                </span>
+              </button>
               </p>
               <p></p>
               <p>
@@ -98,7 +102,7 @@
                   class="figure"
                   *ngFor="let image of activity.description.images"
                 >
-                  <a href="">
+               
                     <img
                       class="figure-img img-fluid rounded photo-layout"
                       src="{{ image.url }}"
@@ -106,7 +110,7 @@
                       height="40"
                       alt=""
                     />
-                  </a>
+                 
                   <p>&copy;{{ image.license_type.name }}</p>
                 </figure>
               </div>

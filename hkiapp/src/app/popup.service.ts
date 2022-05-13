@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -52,13 +51,25 @@ export class PopupService {
     return `` +
     `<div> 
     <h6>${data.name.en}</h6>
-    <a target="_blank" href="${ data.info_url }"> ${ data.info_url } </a>
+    <a target="_blank" href="${ data.info_url }"> Linkki järjestäjän kotisivulle </a>
+    <p>Osoite:<br> ${ data.location.address.street_address }
+    <br>${ data.location.address.postal_code }
+    <br>${ data.location.address.locality }</p>
     </div>`
-  }else {
+    }else if(data.location.address.postal_code == null) {
+      return `` +
+      `<div> 
+      <h6>${data.name.fi}</h6>
+      <a target="_blank" href="${ data.info_url }"> Linkki järjestäjän kotisivulle </a>
+      <p>Osoite:<br> ${ data.location.address.street_address }
+      <br> -
+      <br>${ data.location.address.locality }</p>
+      </div>`
+    }else{
     return `` +
     `<div> 
     <h6>${data.name.fi}</h6>
-    <a target="_blank" href="${ data.info_url }"> ${ data.info_url } </a>
+    <a target="_blank" href="${ data.info_url }">  Linkki järjestäjän kotisivulle  </a>
     <p>Osoite:<br> ${ data.location.address.street_address }
     <br>${ data.location.address.postal_code }
     <br>${ data.location.address.locality }</p>

@@ -10,7 +10,7 @@ export class PopupService {
   makePlacePopup(data: any): string {
     return `` +
     `<div> <h6>${data.name.fi}</h6> 
-    <a target="_blank" href="${ data.info_url }"> ${data.info_url} </a>
+    <a target="_blank" href="${ data.info_url }"> Linkki paikan kotisivulle</a>
     <p>Osoite:<br>${data.location.address.street_address} 
     <br> ${data.location.address.postal_code} 
     <br> ${data.location.address.locality}</p>
@@ -35,8 +35,8 @@ export class PopupService {
     return `` +
     `<div>
     <h6>${data.name.fi} </h6><p>${data.description.intro}</p>
-    <a class="mb-0 opacity-75 link-info" target="_blank" href="{{ data.info_url }}" onclick="window.open(this.href,'_blank');
-    "rel="noopener noreferrer">${ data.info_url }</a>
+    <a class="mb-0 opacity-75 link-info" target="_blank" href="${ data.info_url }" onclick="window.open(this.href,'_blank');
+    "rel="noopener noreferrer">Linkki tapahtuman kotisivulle </a>
     <p>Alkaa: ${aika_alkaa}<br>
     Loppuu: ${aika_loppuu}</p>
     <p>Osoite:<br> 

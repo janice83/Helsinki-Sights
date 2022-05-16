@@ -27,6 +27,7 @@ h6 { font-size: 0.8rem; }
 
 p {
     font-family: 'Courier New', Courier, monospace;
+    word-break: break-word;
     /* font-size: 1.2rem; */
 }
 

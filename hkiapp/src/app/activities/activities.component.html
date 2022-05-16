@@ -55,13 +55,14 @@
                 >
                   Linkki järjestäjän kotisivulle
                 </a>
-                <button  class="btn btn-outline-light" (click)="sendCoordinates(activity)" style="font-size: 14px;  border: none;">
-                  <span>
-                  <fa-icon [icon]="faMapLocationDot" style="color: darkturquoise; font-size: 1.4rem;" ></fa-icon>
-                </span>
+              </p>
+              <p>Näytä kartalla:
+              <button  class="btn btn-outline-light" (click)="sendCoordinates(activity)" style="font-size: 14px;  border: none;">
+                <span>
+                <fa-icon [icon]="faMapLocationDot" style="color: darkturquoise; font-size: 1.4rem;" ></fa-icon>
+              </span>
               </button>
               </p>
-              <p></p>
               <p>
                 {{ activity.description.body | stripHtml }}
               </p>
@@ -86,7 +87,7 @@
                   </p>
                 
                 <ng-template #PostalCode>
-                  <p class="address" >
+                  <p class="address" >Osoite: <br>
                     {{ activity.location.address.street_address }}
                     <br>
                     {{ activity.location.address.postal_code }}

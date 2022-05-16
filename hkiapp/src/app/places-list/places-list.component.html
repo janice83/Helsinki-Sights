@@ -58,8 +58,15 @@
                 >
                   Linkki paikan kotisivulle
                 </a>
-                <button (click)="sendCoordinates(place)">Näytä kartalla</button>
                 </p>
+                <p>Näytä kartalla:
+                  <button  class="btn btn-outline-light" (click)="sendCoordinates(place)" style="font-size: 14px;  border: none;">
+                    <span>
+                    <fa-icon [icon]="faMapLocationDot" style="color: darkturquoise; font-size: 1.4rem;" ></fa-icon>
+                  </span>
+                  </button>
+                </p>
+
               <p class="mb-0">{{ place.description.body }}</p>
               <p></p>
               <div class="company-address-info">

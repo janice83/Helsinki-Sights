@@ -3,6 +3,7 @@ import { EventsService } from '../events.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Events } from '../event';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class EventsComponent implements OnInit {
   selected = "";
   tag = "";
   today!: Date;
+  faMapLocationDot = faMapLocationDot;
 
   constructor(public eventsService: EventsService) { }
 

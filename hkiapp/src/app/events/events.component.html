@@ -50,16 +50,26 @@
                       </ng-template>
                     </mat-panel-title>
                   </mat-expansion-panel-header>
-                  <a
-                  class="mb-0 link-info"
-                  target="_blank"
-                  href="{{ event.info_url }}"
-                  onclick="window.open(this.href,'_blank');"
-                  rel="noopener noreferrer"
-                >
-                  Linkki tapahtuman kotisivulle
-                </a>
-                <button (click)="sendCoordinates(event)">Näytä kartalla</button>
+                  <p>
+                    <a
+                    class="mb-0"
+                    target="_blank"
+                    href="{{ event.info_url }}"
+                    onclick="window.open(this.href,'_blank');"
+                    rel="noopener noreferrer"
+                                    >
+                    Linkki tapahtuman kotisivulle
+                                    </a>
+                                    
+                  </p>
+                  <p>Näytä kartalla:
+                    <button  class="btn btn-outline-light" (click)="sendCoordinates(event)" style="font-size: 14px;  border: none;">
+                      <span>
+                      <fa-icon [icon]="faMapLocationDot" style="color: darkturquoise; font-size: 1.4rem;" ></fa-icon>
+                    </span>
+                    </button>
+                    </p>
+      
                 <p class="mb-0">{{ event.description.intro }}</p>
                 <p></p>
                 <p>Alkaa: {{ event.event_dates.starting_day | date: 'dd/MM/YYYY' }}, klo. {{ event.event_dates.starting_day | date: 'HH:mm'}} </p>

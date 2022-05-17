@@ -5,6 +5,7 @@ import { Place, Places, Tag, Tags } from '../place';
 import {MatSelectModule} from '@angular/material/select';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { MapComponent } from '../map/map.component';
+import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-places-list',
@@ -23,7 +24,8 @@ export class PlacesListComponent implements OnInit {
   name = "";
   selected = "";
   tag = "";
-
+  faMapLocationDot = faMapLocationDot;
+  
   constructor(public placesService: PlacesService) { }
 
   ngOnInit(): void {

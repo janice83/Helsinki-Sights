@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ActivitiesService {
-  private apiUrl = 'http://localhost:8080'; 
+  private apiUrl = 'https://hkiapp-backend-1652992457257.azurewebsites.net'; 
   private subject = new Subject<any>();
 
   constructor(private http: HttpClient) { }

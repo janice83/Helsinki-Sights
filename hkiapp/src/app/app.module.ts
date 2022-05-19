@@ -31,6 +31,10 @@ import { FilterTagPipe } from './filter-tag.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderByNamePipe } from './order-by-name.pipe';
 import { StripHtmlPipe } from './strip-html.pipe';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { BoardUserComponent } from './board-user/board-user.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,11 @@ import { StripHtmlPipe } from './strip-html.pipe';
     WeatherComponent,
     FilterTagPipe,
     OrderByNamePipe,
-    StripHtmlPipe
+    StripHtmlPipe,
+    RegisterComponent,
+    ProfileComponent,
+    LoginComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,

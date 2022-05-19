@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://omahelsinkiapp.azurewebsites.net")
 public class HkiController {
 
     @RequestMapping("/")

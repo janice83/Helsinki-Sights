@@ -25,6 +25,7 @@ export class ActivitiesComponent implements OnInit {
   tag = "";
   selectedSort: string = '';
   activitiesList: any;
+  isFav = false;
 
   constructor(public activitiesService: ActivitiesService) { }
 

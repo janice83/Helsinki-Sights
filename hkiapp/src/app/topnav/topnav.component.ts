@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { faFaceSmileWink } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-topnav',
@@ -13,7 +13,7 @@ export class TopnavComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
-  faFaceSmileWink  = faFaceSmileWink;
+  
 
   constructor(private tokenStorageService: TokenStorageService) { }
 

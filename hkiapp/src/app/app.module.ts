@@ -35,6 +35,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { BoardUserComponent } from './board-user/board-user.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { BoardUserComponent } from './board-user/board-user.component';
     CdkScrollableModule,
     MatExpansionModule,
     MatSelectModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatIconModule
   ],
   providers: [MarkerService, PopupService],
   bootstrap: [AppComponent]
